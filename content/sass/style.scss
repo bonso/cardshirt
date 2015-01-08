@@ -1,0 +1,848 @@
+@import 'compass/css3';
+@import 'compass/css3/filter';
+@import '../bourbon/bourbon';
+
+$source-sans: 'Source Sans Pro', sans-serif;
+$open-sans-condensed: 'Open Sans Condensed', sans-serif;
+$knewave: 'Knewave', cursive;
+$amatic-sc: 'Amatic SC', cursive;
+$merriweather: 'Merriweather', serif;
+
+$red: #BA0202;
+$black: #232323;
+$grey: #E5E5E5;
+$yellow: #f6a704;
+
+
+/********************************************
+ 	Base Styles
+********************************************/
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+    font-family: $source-sans;
+	// font-family: $merriweather;
+    text-rendering: optimizeLegibility;
+    font-size: 100%;
+	// letter-spacing: 1.25px;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+    font-family: $knewave;
+    // font-family: $amatic-sc;
+	font-weight: 400;
+	font-size: 3.75rem;
+    // font-size: 4.5rem;
+    letter-spacing: 1px;
+}
+
+h2 {
+	font-family: $open-sans-condensed;
+	font-size: 2.25rem;
+	letter-spacing: 1px;
+	font-weight: 300;
+	margin: 0;
+	border-bottom: 1px solid black;
+}
+
+a {
+    color: $red;
+    text-decoration: none;
+    font-style: italic;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.section {
+	padding: 5rem 0;
+	margin: 0;
+	clear: both;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+	overflow: hidden;
+	p {
+		text-align: left;
+        font-size: 1.15rem;
+		font-weight: 300;
+	}
+}
+
+
+/********************************************
+	Primary Page: 	 index.html
+	Primary Purpose: full-screen pre-header section on home page
+********************************************/
+.section.beginning {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('../../images/uoflcardinals-background.jpg');
+    background-size: 100% 100%;
+    @include transition(top 0.1s, bottom 0.1s);
+    .center {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        height: 60%;
+        margin: auto;
+        text-align: center;
+        img {
+            display: block;
+            height: 15rem;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            font-size: 2.75rem;
+            // font-size: 3.75rem;
+        }
+    }
+    i {
+        color: white;
+        width: 2rem;
+        position: absolute;
+        bottom: 6.5rem; right: 0; left: 0;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+}
+
+.section.beginning.moved {
+    top: -50%;
+    bottom: 50%;
+}
+
+.section.follow {
+    position: static;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: transparent;
+    z-index: -1;
+}
+
+
+/********************************************
+	Primary Page: 	 all/master page
+	Primary Purpose: obvious
+********************************************/
+.section.header {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+	right: 0;
+	left: 0;
+	padding: 1.5rem 0;
+	background-color: $grey;
+    box-shadow: rgba(0,0,0,0.85) 0 0 0.25rem;
+    z-index: 4;
+    .box {
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 5rem;
+        width: 5rem;
+        background-color: $black;
+        cursor: pointer;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+		#itemcount {
+			position: absolute;
+			top: 1rem; right: 1rem;
+			display: block;
+			font-size: 0.75rem;
+			padding: 0.15rem 0.325rem;
+			border-radius: 50%;
+			background-color: white;
+		}
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            width: 100vw;
+            white-space: nowrap;
+            cursor: initial;
+            display: none;
+            box-shadow: rgba(0,0,0,0.85) 0 2px 0.025rem;
+            .item {
+                display: table;
+                width: 60rem;
+                margin: 0 auto;
+                color: white;
+                font-family: $open-sans-condensed;
+                letter-spacing: normal;
+                border-bottom: 1px solid $black;
+                .cell {
+                    display: table-cell;
+                    width: 20%;
+                    text-align: center;
+                    padding: 2.5rem;
+                }
+                .cell.x {
+                    cursor: pointer;
+                    font-size: 1.25rem;
+                }
+                .bold {
+                    font-weight: bold;
+                }
+                .tick {
+                    display: inline-block;
+                    border: 1px solid white;
+                    border-radius: 50%;
+                    margin: 0 1rem;
+                    padding: 0 0.5rem;
+                    cursor: pointer;
+                }
+            }
+            .item.end {
+                width: 100%;
+                margin: 0;
+                background-color: $black;
+                margin-top: -1px;
+                text-transform: uppercase;
+                .cell {
+                    padding: 1.5rem;
+                    color: $red;
+                    .price {
+                        font-size: 2rem;
+                        font-weight: bold;
+                        color: white;
+                    }
+                }
+                .button {
+                    font-size: 1rem;
+                    padding: 0.25rem 1.5rem;
+                }
+            }
+        }
+    }
+    .box.left {
+        left: 0;
+        background-image: url('../../images/sandwich-bar.png');
+        background-size: 1.5rem 1rem;
+        .dropdown {
+            left: 0;
+            background-color: $black;
+            .navitem {
+                display: block;
+                text-align: center;
+                margin: 1.5rem auto;
+                font-size: 3rem;
+                font-weight: 100;
+                color: white;
+                font-style: normal;
+            }
+            .navitem {
+                // text-decoration: none;
+            }
+        }
+    }
+    .box.right {
+        right: 0;
+        background-color: $red;
+        background-image: url('../../images/cart.png');
+        background-size: 2rem 1.5rem;
+        .dropdown {
+            right: 0;
+            background-color: $red;
+        }
+    }
+    .box.on {
+        background-image: url('../../images/x.png');
+        background-size: 1.5rem 1.5rem;
+		#itemcount {
+			display: none;
+		}
+    }
+    .logo {
+        display: block;
+        margin: 0 auto;
+        height: 2rem;
+    }
+}
+
+.section.header.static {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    box-shadow: none;
+}
+
+
+/********************************************
+	Primary Page: 	 index.html, shop.html
+	Primary Purpose: obvious
+********************************************/
+.section.hero {
+    .button {
+        color: black;
+    }
+    img {
+        display: block;
+        height: 12rem;
+        margin: 0 auto;
+        padding: 1.5rem 0;
+    }
+}
+
+.section.hero.bg1 {
+    padding-bottom: 0;
+    background-image: url('../../images/gplaypattern-background.png');
+}
+
+
+/********************************************
+	Primary Page: 	 index.html, shop.html, product.html
+	Primary Purpose: mostly defining styles for each item and their surrounding container
+********************************************/
+.section.store {
+    padding: 5rem 0 0;
+    text-align: center;
+    background-color: $grey;
+    background-image: url('../../images/gplaypattern-background.png');
+    .item {
+        box-sizing: border-box;
+        width: 33.333333333333333%;
+        position: relative;
+        float: left;
+        text-align: center;
+        // padding: 1.5rem 0;
+		padding: 0;
+        cursor: pointer;
+        img {
+            position: relative;
+            display: block;
+            width: 100%;
+			height: 26.875rem;
+            margin: 0 auto;
+            @include filter(blur(0) grayscale(100%));
+			filter: url('../../images/filter.svg#grayscale');
+            @include transition(all 0.3s);
+            z-index: -1;
+        }
+        .title {
+            position: relative;
+            display: block;
+            text-align: center;
+            color: white;
+            // font-family: $amatic-sc;
+            font-family: $knewave;
+            // font-size: 3rem;
+            font-size: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+			opacity: 0;
+            @include transition(top 0.25s, opacity 0.25s);
+        }
+        .overlay {
+            background-color: transparent;
+            @include transition(all 0.3s);
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+        }
+        .button {
+            position: absolute;
+            width: 120px;
+            left: 0;
+            right: 0;
+			bottom: 0;
+            margin: 0 auto;
+            border-color: white;
+			background-color: white;
+			color: black;
+            opacity: 0;
+        }
+        .button:hover {
+            background-color: $yellow;
+			border-color: $yellow;
+        }
+    }
+    .item:hover {
+        img {
+            @include filter(blur(4px) grayscale(0));
+			filter: url('../../images/filter.svg#blur');
+        }
+        .overlay {
+            background-color: rgba(0,0,0,0.15);
+        }
+        .title {
+            top: 20%;
+			opacity: 1;
+        }
+        .button {
+            bottom: 20%;
+            opacity: 1;
+        }
+    }
+    .more {
+        display: block;
+        width: 100%;
+        padding: 1.5rem 0;
+        color: white;
+        background-color: $red;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: bold;
+        cursor: pointer;
+        clear: both;
+        @include transition(background-color 0.15s);
+    }
+    .more:hover {
+        background-color: lighten($red, 10%);
+    }
+    .bottomborder {
+        background-image: url('../../images/creativebackground.png');
+        background-repeat: repeat-x;
+        background-size: auto 100%;
+        height: 3rem;
+        position: absolute;
+        top: -1rem;
+        right: 0;
+        left: 0;
+    }
+	.pagination {
+		width: 100%;
+		display: block;
+		padding: 0;
+		.part {
+			float: left;
+			width: 25%;
+			padding: 1rem 0;
+			background-color: $yellow;
+			text-align: center;
+			cursor: pointer;
+			@include transition(background-color 0.15s);
+		}
+		.part:hover {
+			background-color: lighten($yellow, 10%);
+		}
+		.middle {
+			float: left;
+			width: 50%;
+			padding: 1rem 0;
+			margin: 0;
+			list-style: none;
+			text-align: center;
+			li {
+				display: inline;
+				padding: 0;
+				margin: 0 1rem;
+				cursor: pointer;
+			}
+			li:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.section.store::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+.section.store.nobg {
+    background-image: none;
+    padding-top: 0;
+}
+
+.section.store.noimg {
+	background-image: none;
+	background-color: white;
+	padding-top: 1rem;
+}
+
+
+/********************************************
+	Primary Page: 	 product.html
+	Primary Purpose: styling the product image and description areas
+********************************************/
+.section.product {
+	background-color: white;
+	// color: white;
+	padding: 0;
+	.title {
+		width: 100%;
+		background-color: white;
+		.portion {
+			box-sizing: border-box;
+			display: block;
+			font-family: $open-sans-condensed;
+			font-size: 2.75rem;
+			font-weight: 100;
+			border-bottom: 0.125rem solid $black;
+		}
+		.left {
+			@extend .portion;
+			padding: 0.75rem 2rem;
+			margin-right: 10rem;
+		}
+		.right {
+			@extend .portion;
+			float: right;
+			width: 10rem;
+			background-color: $black;
+			color: white;
+			span {
+				display: inline-block;
+				padding: 0.75rem 1rem;
+				margin-right: 1rem;
+				font-size: 2.75rem;
+				font-weight: 700;
+			}
+		}
+	}
+	.title::after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+	.shirt {
+		box-sizing: border-box;
+		position: absolute;
+		top: 5.375rem;
+		left: 0;
+		bottom: 0;
+		width: 50%;
+		background-color: lighten($grey, 5%);
+		img {
+			display: block;
+			width: 90%;
+			margin: 2rem auto 0;
+		}
+	}
+	.description {
+		box-sizing: border-box;
+		float: right;
+		width: 50%;
+		padding: 2rem 5rem 0;
+		table {
+			width: 100%;
+			td {
+				padding: 0.25rem 0.5rem;
+			}
+			tr td:nth-child(1) {
+				font-weight: bold;
+				padding-left: 0;
+			}
+			tr td:nth-child(2) {
+				width: 99%;
+			}
+		}
+		.sizeandqty {
+			display: inline-block;
+			box-sizing: border-box;
+			width: 50%;
+			padding: 2rem 0;
+			float: left;
+		}
+		.size {
+			@extend .sizeandqty;
+			position: relative;
+		    padding: 0.25rem 0;
+		    margin: 2.25rem 5%;
+		    border: 2px solid $grey;
+		    width: 40%;
+		    overflow: hidden;
+		    background-color: white;
+			select {
+				padding: 5px 8px;
+				width: 110%;
+				border: none;
+				box-shadow: none;
+				background-color: transparent;
+				background-image: none;
+				font-size: 1.5rem;
+				color: darken($grey, 50%);
+				@include appearance(none);
+			}
+			select:focus {
+				outline: none;
+			}
+			i {
+				position: absolute;
+				top: 0.75rem; right: 10%;
+				color: darken($grey, 50%);
+			}
+		}
+		.qty {
+			@extend .sizeandqty;
+			text-align: right;
+			div {
+				width: 90%;
+				color: darken($grey, 50%);
+				input {
+					display: inline-block;
+					box-sizing: border-box;
+					width: 45%;
+					margin: 2.5%;
+					padding: 0.75rem 1rem;
+					border: none;
+					border-bottom: 2px solid $grey;
+					font-size: 1.25rem;
+					color: darken($grey, 50%);
+					text-align: center;
+				}
+				input:focus {
+					outline: none;
+				}
+				.tick {
+					display: inline-block;
+					width: 25%;
+					text-align: center;
+					background-color: $grey;
+					cursor: pointer;
+					margin: 0;
+					padding: 1rem 0;
+				}
+			}
+		}
+		.options::after {
+			content: " ";
+			display: table;
+			clear: both;
+		}
+		.social {
+			width: 100%;
+			padding: 1rem 0;
+			text-align: center;
+			i {
+				color: white;
+				border-radius: 50%;
+				padding: 0.5rem 0.75rem;
+				@include transition(background-color 0.2s);
+			}
+			i.fa-facebook {
+				padding: 0.5rem 1rem;
+				background-color: #3b5998;
+			}
+			i.fa-facebook:hover {
+				background-color: lighten(#3b5998, 10%);
+			}
+			i.fa-twitter {
+				background-color: #55acee;
+			}
+			i.fa-twitter:hover {
+				background-color: lighten(#55acee, 10%);
+			}
+			i.fa-instagram {
+				background-color: #3f729b;
+			}
+			i.fa-instagram:hover {
+				background-color: lighten(#3f729b, 10%);
+			}
+		}
+		.addtocart {
+			display: block;
+			position: relative;
+			width: 50vw;
+			left: -5rem;
+			box-sizing: border-box;
+			padding: 1rem 0;
+			margin: 0;
+			text-align: center;
+			background-color: $red;
+			color: white;
+			font-style: normal;
+			text-transform: uppercase;
+			@include transition(background-color 0.2s);
+		}
+		.addtocart:hover {
+			text-decoration: none;
+			background-color: lighten($red, 10%);
+		}
+	}
+}
+
+.section.product::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+
+/********************************************
+	Primary Page: 	 index.html
+	Primary Purpose: basic filler content with dark background
+********************************************/
+.section.content.dark {
+    background-color: $black;
+    color: white;
+    padding: 0;
+    box-shadow: rgba(0,0,0,0.85) 0 2px 0.25rem;
+    .container {
+        box-sizing: border-box;
+        width: 50%;
+        margin: 0;
+        padding: 0 4rem;
+        float: left;
+    }
+    img {
+        float: right;
+        width: 50%;
+    }
+}
+
+.section.content.dark::after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+
+/********************************************
+	Primary Page: 	 all/master page
+	Primary Purpose: obvious
+********************************************/
+.section.footer {
+    position: fixed;
+    bottom: 0; right: 0; left: 0;
+    padding: 2rem 0;
+    background-color: $red;
+    background-image: url('../../images/escheresque-background.png');
+    background-size: 2rem 1rem;
+    z-index: 1;
+    .float-left {
+        width: 50%;
+        text-align: left;
+        a {
+            display: block;
+            color: white;
+            font-size: 1.5rem;
+            font-style: normal;
+            text-transform: uppercase;
+        }
+        a.bold {
+            font-weight: bold;
+        }
+    }
+    .float-right {
+        width: 50%;
+        text-align: right;
+        padding-top: 0.75rem;
+        i {
+            margin: 0 0.25rem;
+            color: darken($grey, 80%);
+            cursor: pointer;
+            @include transition(color 0.3s);
+        }
+        i:hover {
+            color: white;
+        }
+    }
+}
+
+#footerfollow {
+    background-color: transparent;
+    z-index: -1;
+}
+
+.backtotop {
+    position: fixed;
+    bottom: 1.5rem; right: 0;
+    box-sizing: border-box;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba(0,0,0,0.4);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    @include transition(opacity 0.25s);
+    z-index: 3;
+    i {
+        color: white;
+    }
+}
+
+.backtotop.on {
+    opacity: 1;
+}
+
+.button {
+	display: inline-block;
+	font-size: 2rem;
+	font-weight: normal;
+	padding: 0.75rem 3rem;
+	background-color: transparent;
+	border: 0.125rem solid $red;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+    font-style: normal;
+	cursor: pointer;
+	@include transition(all 0.25s);
+}
+
+.button:hover {
+	background-color: $yellow;
+	border-color: $yellow;
+	text-decoration: none;
+}
+
+.clear {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+.row {
+	width: 100%;
+	overflow: auto;
+	clear: both;
+}
+
+.column {
+	position: relative;
+	float: left;
+	width: 100%;
+	padding: 1.25rem;
+	margin: 0.25rem;
+}
+
+.size-12 {
+	max-width: 96.66666666666667%;
+	text-align: center;
+}
+
+.size-6 {
+	text-align: center;
+	width: 46.875%;
+}
+
+.size-4 {
+	text-align: center;
+	width: 29.5%;
+}
+
+.float-left {
+	float: left !important;
+}
+
+.float-right {
+	float: right !important;
+}
