@@ -40,6 +40,17 @@ a:hover {
   text-decoration: underline;
 }
 
+span.nohref {
+  color: #ba0202;
+  text-indent: none;
+  font-style: italic;
+  cursor: pointer;
+}
+
+span.nohref:hover {
+  text-decoration: underline;
+}
+
 .section {
   padding: 5rem 0;
   margin: 0;
@@ -134,7 +145,7 @@ a:hover {
   bottom: auto;
   right: 0;
   left: 0;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   background-color: #e5e5e5;
   box-shadow: rgba(0, 0, 0, 0.85) 0 0 0.25rem;
   z-index: 4;
@@ -257,7 +268,8 @@ a:hover {
 .section.header .logo {
   display: block;
   margin: 0 auto;
-  height: 2rem;
+  height: 3rem;
+  width: auto;
 }
 
 .section.header.static {
@@ -281,9 +293,24 @@ a:hover {
   padding: 1.5rem 0;
 }
 
-.section.hero.bg1 {
-  padding-bottom: 0;
-  background-image: url("../../images/gplaypattern-background.png");
+.section.hero.bg1, .section.hero.bg2 {
+  background-image: url("../../images/work-background.jpg");
+  background-size: 100% 100%;
+  background-position: 0 -5rem;
+  background-attachment: fixed;
+  color: white;
+  padding: 8rem 0;
+}
+.section.hero.bg1 h1, .section.hero.bg2 h1 {
+  font-size: 6.5rem;
+  margin: 0;
+}
+.section.hero.bg1 .button, .section.hero.bg2 .button {
+  color: white;
+}
+
+.section.hero.bg2 {
+  background-image: url("../../images/louisvilleskyline-background.png");
 }
 
 /********************************************
@@ -309,7 +336,7 @@ a:hover {
   position: relative;
   display: block;
   width: 100%;
-  height: 26.875rem;
+  height: 25.5rem;
   margin: 0 auto;
   -webkit-filter: blur(0) grayscale(100%);
   filter: blur(0) grayscale(100%);
@@ -360,6 +387,24 @@ a:hover {
   color: black;
   opacity: 0;
 }
+.section.store .item .position {
+  position: absolute;
+  width: 90%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  color: white;
+  opacity: 0;
+  font-size: 2.5rem;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.section.store .item .position:hover {
+  background-color: transparent;
+  border-color: none;
+}
 .section.store .item .button:hover {
   background-color: #f6a704;
   border-color: #f6a704;
@@ -377,6 +422,10 @@ a:hover {
   opacity: 1;
 }
 .section.store .item:hover .button {
+  bottom: 20%;
+  opacity: 1;
+}
+.section.store .item:hover .position {
   bottom: 20%;
   opacity: 1;
 }
@@ -419,15 +468,16 @@ a:hover {
   float: left;
   width: 25%;
   padding: 1rem 0;
-  background-color: #f6a704;
+  background-color: #707070;
   text-align: center;
+  color: white;
   cursor: pointer;
   -webkit-transition: background-color 0.15s;
   -moz-transition: background-color 0.15s;
   transition: background-color 0.15s;
 }
 .section.store .pagination .part:hover {
-  background-color: #fcba31;
+  background-color: #ba0202;
 }
 .section.store .pagination .middle {
   float: left;
@@ -446,6 +496,12 @@ a:hover {
 .section.store .pagination .middle li:hover {
   text-decoration: underline;
 }
+.section.store p.error {
+  border: 1px solid #ba0202;
+  background-color: rgba(186, 2, 2, 0.2);
+  font-weight: bold;
+  padding: 0.75rem 0.25rem;
+}
 
 .section.store::after {
   content: " ";
@@ -460,8 +516,19 @@ a:hover {
 
 .section.store.noimg {
   background-image: none;
-  background-color: white;
+  background-color: #232323;
+  color: white;
   padding-top: 1rem;
+}
+
+.section.morebg {
+  background-image: none;
+  background-color: #232323;
+  color: white;
+}
+
+.section.store.error {
+  padding-bottom: 5rem;
 }
 
 /********************************************
@@ -679,6 +746,130 @@ a:hover {
 	Primary Page: 	 index.html
 	Primary Purpose: basic filler content with dark background
 ********************************************/
+.contact {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(35, 35, 35, 0.85);
+  color: white;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+.contact .container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 80%;
+  margin: auto;
+  overflow: visible;
+}
+.contact .container h1 {
+  margin-top: 0;
+}
+.contact .container form {
+  width: 100%;
+}
+.contact .container form .column {
+  height: 3rem;
+  padding: 0.5rem;
+  border: 1px solid white;
+  border-top: 0;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+}
+.contact .container form .column::-webkit-input-placeholder {
+  color: #cccccc;
+}
+.contact .container form .column:-moz-placeholder {
+  color: #cccccc;
+}
+.contact .container form .column::-moz-placeholder {
+  color: #cccccc;
+}
+.contact .container form .column:-ms-input-placeholder {
+  color: #cccccc;
+}
+.contact .container form .row:nth-child(1) .column {
+  border-top: 1px solid white;
+}
+.contact .container form .row:nth-child(3) .column {
+  padding: 1.25rem;
+  height: 4.75rem;
+}
+.contact .container form .row:nth-child(3) .column:nth-child(2) {
+  padding: 0.5rem;
+}
+.contact .container form .row:last-child .column {
+  height: auto;
+  border: none;
+}
+.contact .container form .column:nth-child(2) {
+  border-left: 0;
+  text-align: left;
+  font-size: 1.15rem;
+}
+.contact .container form .button {
+  border-color: white;
+}
+.contact .container form .button:hover {
+  border-color: #f6a704;
+}
+.contact .container p {
+  text-align: center;
+}
+.contact .container i {
+  position: static;
+  color: white;
+  border-radius: 50%;
+  padding: 0.5rem 0.75rem;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+.contact .container i.fa-facebook {
+  padding: 0.5rem 1.25rem;
+  background-color: #3b5998;
+}
+.contact .container i.fa-facebook:hover {
+  background-color: #4c70ba;
+}
+.contact .container i.fa-twitter {
+  background-color: #55acee;
+}
+.contact .container i.fa-twitter:hover {
+  background-color: #83c3f3;
+}
+.contact .container i.fa-instagram {
+  background-color: #3f729b;
+}
+.contact .container i.fa-instagram:hover {
+  background-color: #548cb9;
+}
+.contact i {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  cursor: pointer;
+}
+
+.contact.on {
+  z-index: 10;
+  opacity: 1;
+}
+
+/********************************************
+	Primary Page: 	 index.html
+	Primary Purpose: basic filler content with dark background
+********************************************/
 .section.content.dark {
   background-color: #232323;
   color: white;
@@ -701,6 +892,36 @@ a:hover {
   content: " ";
   display: table;
   clear: both;
+}
+
+.section.content.black {
+  background-color: #232323;
+  color: white;
+}
+.section.content.black h1 {
+  margin-top: 0;
+}
+
+/********************************************
+	Primary Page: 	 all/master page
+	Primary Purpose: obvious
+********************************************/
+.section.map {
+  padding: 0;
+}
+.section.map .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  background-color: rgba(186, 2, 2, 0.7);
+  z-index: 4;
+}
+.section.map #map-canvas {
+  height: 15rem;
+  z-index: 2;
 }
 
 /********************************************
@@ -815,32 +1036,101 @@ a:hover {
 }
 
 .column {
+  box-sizing: border-box;
   position: relative;
   float: left;
   width: 100%;
   padding: 1.25rem;
-  margin: 0.25rem;
+  margin: 0;
+  text-align: center;
 }
 
 .size-12 {
-  max-width: 96.66666666666667%;
-  text-align: center;
+  max-width: 100%;
+}
+
+.size-8 {
+  width: 66.66666666667%;
 }
 
 .size-6 {
-  text-align: center;
-  width: 46.875%;
+  width: 50%;
 }
 
 .size-4 {
-  text-align: center;
-  width: 29.5%;
+  width: 33.33333333333%;
 }
 
 .float-left {
-  float: left !important;
+  float: left;
 }
 
 .float-right {
-  float: right !important;
+  float: right;
+}
+
+/********************************************
+	MEDIA QUERIES
+********************************************/
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .section {
+    margin-top: 2rem 0;
+  }
+
+  .container {
+    max-width: 80%;
+  }
+
+  .section.beginning .center {
+    width: 85%;
+  }
+  .section.beginning .center img {
+    height: auto;
+    width: 100%;
+  }
+  .section.beginning .center h1 {
+    font-size: 2rem;
+  }
+
+  .section.store .item {
+    width: 50%;
+  }
+  .section.store .item img {
+    height: 12rem;
+  }
+  .section.store #hideifmobile {
+    display: none;
+  }
+  .section.store .pagination .middle li {
+    margin: 0 0.25rem;
+  }
+
+  .section.content.dark .container {
+    float: none;
+    width: 80%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .section.content.dark img {
+    display: none;
+  }
+
+  .section.footer .float-left {
+    width: 80%;
+  }
+  .section.footer .float-right {
+    float: left;
+    text-align: left;
+  }
+  .section.footer .float-right i {
+    color: white;
+  }
+
+  .button {
+    padding: 0.5rem 1.5rem;
+  }
 }

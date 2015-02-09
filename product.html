@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>CardShirt | The Rise</title>
     <link rel="stylesheet" type="text/css" href="content/css/style.css">
+    <meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, initial-scale=1.0, user-scalable=yes">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,300,400,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
@@ -12,15 +13,48 @@
     <script src="./scripts/site.js"></script>
 </head>
 <body>
+    <div class="contact">
+        <div class="container">
+            <h1>contact us</h1>
+            <form>
+                <div class="row">
+                    <span class="column size-4">Name</span>
+                    <input type="text" name="name" class="column size-8" placeholder="Whatever your student ID card says it is">
+                </div>
+                <div class="row">
+                    <span class="column size-4">Email</span>
+                    <input type="text" name="email" class="column size-8" placeholder="example@domain.com">
+                </div>
+                <div class="row">
+                    <span class="column size-4">Message</span>
+                    <textarea name="message" class="column size-8" placeholder="Say what you need to say..."></textarea>
+                </div>
+                <div class="row">
+                    <div class="column size-12">
+                        <button type="submit" class="button">Send</button>
+                    </div>
+                </div>
+            </form>
+            <p>
+                You could also follow us...
+            </p>
+            <div class="row">
+                <a href="#"><i class="fa fa-facebook fa-3x"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
+                <a href="#"><i class="fa fa-instagram fa-3x"></i></a>
+            </div>
+        </div>
+        <i class="fa fa-close fa-2x"></i>
+    </div>
     <div class="section header">
         <div class="box left">
             <div class="dropdown">
                 <a class="navitem" href="shop.html">Shop</a>
-                <a class="navitem" href="#">About</a>
-                <a class="navitem" href="#">Contact</a>
+                <a class="navitem" href="about.html">About</a>
+                <span class="navitem nohref">Contact</a>
             </div>
         </div>
-        <a href="./index.html"><img class="logo" src="./images/cardshirt-logo.png"></a>
+        <a href="./index.html"><img class="logo" src="./images/icon.png"></a>
         <div class="box right">
             <span id="itemcount">2</span>
             <div class="dropdown">
