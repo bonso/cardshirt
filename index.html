@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>CardShirt</title>
 	<link rel="stylesheet" type="text/css" href="content/css/style.css">
+	<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, initial-scale=1.0, user-scalable=yes">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,300,400,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
@@ -12,15 +13,48 @@
     <script src="./scripts/site.js"></script>
 </head>
 <body>
+	<div class="contact">
+		<div class="container">
+			<h1>contact us</h1>
+			<form>
+				<div class="row">
+					<span class="column size-4">Name</span>
+					<input type="text" name="name" class="column size-8" placeholder="Whatever your student ID card says it is">
+				</div>
+				<div class="row">
+					<span class="column size-4">Email</span>
+					<input type="text" name="email" class="column size-8" placeholder="example@domain.com">
+				</div>
+				<div class="row">
+					<span class="column size-4">Message</span>
+					<textarea name="message" class="column size-8" placeholder="Say what you need to say..."></textarea>
+				</div>
+				<div class="row">
+					<div class="column size-12">
+						<button type="submit" class="button">Send</button>
+					</div>
+				</div>
+			</form>
+			<p>
+				You could also follow us...
+			</p>
+			<div class="row">
+				<a href="#"><i class="fa fa-facebook fa-3x"></i></a>
+				<a href="#"><i class="fa fa-twitter fa-3x"></i></a>
+				<a href="#"><i class="fa fa-instagram fa-3x"></i></a>
+			</div>
+		</div>
+		<i class="fa fa-close fa-2x"></i>
+	</div>
     <div class="section header static special">
         <div class="box left">
             <div class="dropdown">
                 <a class="navitem" href="shop.html">Shop</a>
-                <a class="navitem" href="#">About</a>
-                <a class="navitem" href="#">Contact</a>
+                <a class="navitem" href="about.html">About</a>
+                <span class="navitem nohref">Contact</a>
             </div>
         </div>
-        <a href="./index.html"><img class="logo" src="./images/cardshirt-logo.png"></a>
+        <a href="./index.html"><img class="logo" src="./images/icon.png"></a>
         <div class="box right">
             <div class="dropdown">
                 <div class="item">
@@ -52,49 +86,48 @@
         <i class="fa fa-chevron-down fa-2x"></i>
     </div>
     <div class="section follow"></div>
+	<div class="section store">
+		<h1>our products</h1>
+		<div class="item">
+			<img src="./images/designs/bonso-classact-cityscapered.png">
+			<div class="overlay"></div>
+			<span class="title">Cityscape - Red</span>
+			<a href="./product.html" class="button">Details</a>
+		</div>
+		<div class="item">
+			<img src="./images/designs/bonso-classact-therise.png">
+			<div class="overlay"></div>
+			<span class="title">The Rise</span>
+			<a href="./product.html" class="button">Details</a>
+		</div>
+		<div id="hideifmobile" class="item">
+			<img src="./images/designs/bonso-classact-cardinalpride.png">
+			<div class="overlay"></div>
+			<span class="title">Cardinal Pride</span>
+			<a href="./product.html" class="button">Details</a>
+		</div>
+		<a href="shop.html" class="more">Shop All</a>
+	</div>
     <div id="hero" class="section hero">
         <div class="container">
-            <h1>intro</h1>
+            <h1>about cardshirt</h1>
             <p>
-                Welcome to CardShirt! The CardShirt Company is a not-for-profit, student run business based out of the University of Louisville College of Business. Here at CardShirt, we are dedicated to increasing interest in U of L athletics and academics through the creation and sale of an annually themed t-shirt all while boosting student support and involvement. The company provides invaluable experience to students at the University of Louisville by providing the unique opportunity to run a real business while generating profits for student scholarships.
+                The CardShirt Company is a not-for-profit, student run business based out of the University of Louisville College of Business. Here at CardShirt, we are dedicated to increasing interest in U of L athletics and academics through the creation and sale of an annually themed t-shirt all while boosting student support and involvement. The company provides invaluable experience to students at the University of Louisville by providing the unique opportunity to run a real business while generating profits for student scholarships.
             </p>
             <a class="button" href="#">about us</a>
         </div>
     </div>
-    <div class="section store">
-        <h1>featured items</h1>
-        <div class="item">
-            <img src="./images/designs/bonso-classact-cityscapered.png">
-            <div class="overlay"></div>
-            <span class="title">Cityscape - Red</span>
-            <a href="./product.html" class="button">Details</a>
-        </div>
-        <div class="item">
-            <img src="./images/designs/bonso-classact-therise.png">
-            <div class="overlay"></div>
-            <span class="title">The Rise</span>
-            <a href="./product.html" class="button">Details</a>
-        </div>
-        <div class="item">
-            <img src="./images/designs/bonso-classact-cardinalpride.png">
-            <div class="overlay"></div>
-            <span class="title">Cardinal Pride</span>
-            <a href="./product.html" class="button">Details</a>
-        </div>
-        <a href="shop.html" class="more">Shop All</a>
-        <div class="bottomborder"></div>
-    </div>
     <div class="section content dark">
+		<img src="./images/work-background-2.jpg">
         <div class="container">
             <h1>our members</h1>
             <p>
                 As a member of CardShirt, you aren't just another face in the crowd. We want you to take on real responsibility, and gain real-world experience that you can apply to your future career. As a matter of fact, we'll let you take on as much responsibility as you can handle! Students do it all here - from calling potential clients to setting up booths to organizing pretty much everything - and you can do any of it! At CardShirt, we're about more than just sitting in our meetings and throwing in your two cents occasionally.
             </p>
             <p>
-                We are a student-run not-for-profit organization, so we're always looking for new recruits willing to donate some of their time to the CardShirt cause! It’s quite easy to join our ranks. To become involved, <a href="#">contact us</a> and let us know you're interested in helping out!
+                We are a student-run not-for-profit organization, so we're always looking for new recruits willing to donate some of their time to the CardShirt cause! It’s quite easy to join our ranks. To become involved, <span class="nohref">contact us</span> and let us know you're interested in helping out!
             </p>
         </div>
-        <img src="./images/work-background.jpg">
     </div>
     <div class="section footer">
         <div class="container">

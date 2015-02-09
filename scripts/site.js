@@ -76,7 +76,15 @@ $('document').ready(function() {
 
     $('i.fa-chevron-down').click(function() {
         $('html, body').animate({
-            scrollTop: ($('#hero').offset().top)
+            scrollTop: (storeTop)
         }, 500);
+    });
+
+    $('.nohref').click(function() {
+        $('.contact').addClass('on');
+    });
+
+    $('.contact i.fa-close').click(function() {
+        $('.contact').removeClass('on');
     });
 });

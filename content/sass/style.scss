@@ -60,6 +60,17 @@ a:hover {
     text-decoration: underline;
 }
 
+span.nohref {
+	color: $red;
+	text-indent: none;
+	font-style: italic;
+	cursor: pointer;
+}
+
+span.nohref:hover {
+	text-decoration: underline;
+}
+
 .section {
 	padding: 5rem 0;
 	margin: 0;
@@ -150,7 +161,7 @@ a:hover {
     bottom: auto;
 	right: 0;
 	left: 0;
-	padding: 1.5rem 0;
+	padding: 1rem 0;
 	background-color: $grey;
     box-shadow: rgba(0,0,0,0.85) 0 0 0.25rem;
     z-index: 4;
@@ -274,7 +285,8 @@ a:hover {
     .logo {
         display: block;
         margin: 0 auto;
-        height: 2rem;
+        height: 3rem;
+		width: auto;
     }
 }
 
@@ -303,8 +315,24 @@ a:hover {
 }
 
 .section.hero.bg1 {
-    padding-bottom: 0;
-    background-image: url('../../images/gplaypattern-background.png');
+    background-image: url('../../images/work-background.jpg');
+	background-size: 100% 100%;
+	background-position: 0 -5rem;
+	background-attachment: fixed;
+	color: white;
+	padding: 8rem 0;
+	h1 {
+		font-size: 6.5rem;
+		margin: 0;
+	}
+	.button {
+		color: white;
+	}
+}
+
+.section.hero.bg2 {
+	@extend .section.hero.bg1;
+	background-image: url('../../images/louisvilleskyline-background.png');
 }
 
 
@@ -330,7 +358,7 @@ a:hover {
             position: relative;
             display: block;
             width: 100%;
-			height: 26.875rem;
+			height: 25.5rem;
             margin: 0 auto;
             @include filter(blur(0) grayscale(100%));
 			filter: url('../../images/filter.svg#grayscale');
@@ -373,6 +401,20 @@ a:hover {
 			color: black;
             opacity: 0;
         }
+		.position {
+			position: absolute;
+			width: 90%;
+			left: 0; right: 0; bottom: 0;
+			margin: 0 auto;
+			color: white;
+			opacity: 0;
+			font-size: 2.5rem;
+			@include transition(all 0.25s);
+		}
+		.position:hover {
+			background-color: transparent;
+			border-color: none;
+		}
         .button:hover {
             background-color: $yellow;
 			border-color: $yellow;
@@ -394,6 +436,10 @@ a:hover {
             bottom: 20%;
             opacity: 1;
         }
+		.position {
+			bottom: 20%;
+			opacity: 1;
+		}
     }
     .more {
         display: block;
@@ -431,13 +477,14 @@ a:hover {
 			float: left;
 			width: 25%;
 			padding: 1rem 0;
-			background-color: $yellow;
+			background-color: lighten($black, 30%);
 			text-align: center;
+			color: white;
 			cursor: pointer;
 			@include transition(background-color 0.15s);
 		}
 		.part:hover {
-			background-color: lighten($yellow, 10%);
+			background-color: $red;
 		}
 		.middle {
 			float: left;
@@ -457,6 +504,12 @@ a:hover {
 			}
 		}
 	}
+	p.error {
+		border: 1px solid $red;
+		background-color: rgba($red, 0.2);
+		font-weight: bold;
+		padding: 0.75rem 0.25rem;
+	}
 }
 
 .section.store::after {
@@ -472,8 +525,19 @@ a:hover {
 
 .section.store.noimg {
 	background-image: none;
-	background-color: white;
+	background-color: $black;
+	color: white;
 	padding-top: 1rem;
+}
+
+.section.morebg {
+	background-image: none;
+	background-color: $black;
+	color: white;
+}
+
+.section.store.error {
+	padding-bottom: 5rem;
 }
 
 
@@ -689,6 +753,112 @@ a:hover {
 	Primary Page: 	 index.html
 	Primary Purpose: basic filler content with dark background
 ********************************************/
+.contact {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background-color: rgba($black, 0.85);
+	color: white;
+	z-index: -1;
+	opacity: 0;
+	@include transition(opacity 0.3s ease-out);
+	.container {
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		width: 60%;
+		height: 80%;
+		margin: auto;
+		overflow: visible;
+		h1 {
+			margin-top: 0;
+		}
+		form {
+			width: 100%;
+			.column {
+				height: 3rem;
+				padding: 0.5rem;
+				border: 1px solid white;
+				border-top: 0;
+				background-color: transparent;
+				color: white;
+				font-size: 1.5rem;
+				@include placeholder {
+					color: darken(white, 20%);
+				}
+			}
+			.row:nth-child(1) .column {
+				border-top: 1px solid white;
+			}
+			.row:nth-child(3) .column {
+				padding: 1.25rem;
+				height: 4.75rem;
+			}
+			.row:nth-child(3) .column:nth-child(2) {
+				padding: 0.5rem;
+			}
+			.row:last-child .column {
+				height: auto;
+					border: none;
+			}
+			.column:nth-child(2) {
+				border-left: 0;
+				text-align: left;
+				font-size: 1.15rem;
+			}
+			.button {
+				border-color: white;
+			}
+			.button:hover {
+				border-color: $yellow;
+			}
+		}
+		p {
+			text-align: center;
+		}
+		i {
+			position: static;
+			color: white;
+			border-radius: 50%;
+			padding: 0.5rem 0.75rem;
+			@include transition(background-color 0.2s);
+		}
+		i.fa-facebook {
+			padding: 0.5rem 1.25rem;
+			background-color: #3b5998;
+		}
+		i.fa-facebook:hover {
+			background-color: lighten(#3b5998, 10%);
+		}
+		i.fa-twitter {
+			background-color: #55acee;
+		}
+		i.fa-twitter:hover {
+			background-color: lighten(#55acee, 10%);
+		}
+		i.fa-instagram {
+			background-color: #3f729b;
+		}
+		i.fa-instagram:hover {
+			background-color: lighten(#3f729b, 10%);
+		}
+	}
+	i {
+		position: absolute;
+		top: 5%;
+		right: 10%;
+		cursor: pointer;
+	}
+}
+
+.contact.on {
+	z-index: 10;
+	opacity: 1;
+}
+
+
+/********************************************
+	Primary Page: 	 index.html
+	Primary Purpose: basic filler content with dark background
+********************************************/
 .section.content.dark {
     background-color: $black;
     color: white;
@@ -711,6 +881,34 @@ a:hover {
     content: " ";
     display: table;
     clear: both;
+}
+
+.section.content.black {
+	background-color: $black;
+	color: white;
+	h1 {
+		margin-top: 0;
+	}
+}
+
+/********************************************
+	Primary Page: 	 all/master page
+	Primary Purpose: obvious
+********************************************/
+.section.map {
+	padding: 0;
+	.cover {
+		position: absolute;
+		top: 0; left: 0; right: 0;
+		text-align: center;
+		color: white;
+		background-color: rgba($red, 0.7);
+		z-index: 4;
+	}
+	#map-canvas {
+		height: 15rem;
+		z-index: 2;
+	}
 }
 
 
@@ -817,32 +1015,147 @@ a:hover {
 }
 
 .column {
+	box-sizing: border-box;
 	position: relative;
 	float: left;
 	width: 100%;
 	padding: 1.25rem;
-	margin: 0.25rem;
+	margin: 0;
+	text-align: center;
 }
 
 .size-12 {
-	max-width: 96.66666666666667%;
-	text-align: center;
+	max-width: 100%;
+}
+
+.size-8 {
+	width: 66.66666666667%;
 }
 
 .size-6 {
-	text-align: center;
-	width: 46.875%;
+	width: 50%;
 }
 
 .size-4 {
-	text-align: center;
-	width: 29.5%;
+	width: 33.33333333333%;
 }
 
 .float-left {
-	float: left !important;
+	float: left;
 }
 
 .float-right {
-	float: right !important;
+	float: right;
+}
+
+/********************************************
+	MEDIA QUERIES
+********************************************/
+
+@media only screen and (min-width: 1600px) {
+
+}
+
+@media only screen and (max-width: 1600px) {
+
+}
+
+@media only screen and (max-width: 1200px) {
+
+}
+
+@media only screen and (max-width: 1050px) {
+
+}
+
+@media only screen and (max-width: 800px) {
+
+}
+
+@media only screen and (max-width: 600px) {
+	h1 {
+		font-size: 3rem;
+	}
+
+	.section {
+		margin-top: 2rem 0;
+	}
+
+	.container {
+		max-width: 80%;
+	}
+
+	.section.beginning {
+		.center {
+			width: 85%;
+			img {
+				height: auto;
+				width: 100%;
+			}
+			h1 {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.section.store {
+		.item {
+			width: 50%;
+			img {
+				height: 12rem;
+			}
+		}
+		#hideifmobile {
+			display: none;
+		}
+		.pagination {
+			.middle {
+				li {
+					margin: 0 0.25rem;
+				}
+			}
+		}
+	}
+
+	.section.content.dark {
+		.container {
+			float: none;
+			width: 80%;
+			padding: 0;
+			margin: 0 auto;
+		}
+		img {
+			display: none;
+			// width: 100%;
+		}
+	}
+
+	.section.footer {
+		.float-left {
+			width: 80%;
+		}
+		.float-right {
+			float: left;
+			text-align: left;
+			i {
+				color: white;
+			}
+		}
+	}
+
+	.button {
+		padding: 0.5rem 1.5rem;
+	}
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+
+}
+
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
 }
