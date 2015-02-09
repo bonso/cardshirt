@@ -293,23 +293,39 @@ span.nohref:hover {
   padding: 1.5rem 0;
 }
 
-.section.hero.bg1, .section.hero.bg2 {
-  background-image: url("../../images/work-background.jpg");
-  background-size: 100% 100%;
-  background-position: 0 -5rem;
-  background-attachment: fixed;
+.section.hero.bg {
+  background-color: transparent;
   color: white;
   padding: 8rem 0;
 }
-.section.hero.bg1 h1, .section.hero.bg2 h1 {
+.section.hero.bg h1 {
   font-size: 6.5rem;
   margin: 0;
 }
-.section.hero.bg1 .button, .section.hero.bg2 .button {
+.section.hero.bg .button {
   color: white;
 }
 
-.section.hero.bg2 {
+/********************************************
+	Primary Page: 	 index.html, shop.html, product.html
+	Primary Purpose: mostly defining styles for each item and their surrounding container
+********************************************/
+.background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: 100% 100%;
+  background-position: 0 -5rem;
+  z-index: -1;
+}
+
+.background.bg1 {
+  background-image: url("../../images/work-background.jpg");
+}
+
+.background.bg2 {
   background-image: url("../../images/louisvilleskyline-background.png");
 }
 
