@@ -1,5 +1,5 @@
 /********************************************
- 	Base Styles
+ 	BASE STYLES
 ********************************************/
 html, body {
   width: 100%;
@@ -74,6 +74,7 @@ span.nohref:hover {
 }
 
 /********************************************
+	BEGINNING SECTION
 	Primary Page: 	 index.html
 	Primary Purpose: full-screen pre-header section on home page
 ********************************************/
@@ -136,6 +137,7 @@ span.nohref:hover {
 }
 
 /********************************************
+	HEADER
 	Primary Page: 	 all/master page
 	Primary Purpose: obvious
 ********************************************/
@@ -280,6 +282,7 @@ span.nohref:hover {
 }
 
 /********************************************
+	HERO SECTIONS
 	Primary Page: 	 index.html, shop.html
 	Primary Purpose: obvious
 ********************************************/
@@ -295,9 +298,9 @@ span.nohref:hover {
 
 .section.hero.bg1, .section.hero.bg2 {
   background-image: url("../../images/work-background.jpg");
-  background-size: 100% 100%;
-  background-position: 0 -5rem;
-  background-attachment: fixed;
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   padding: 8rem 0;
 }
@@ -314,6 +317,12 @@ span.nohref:hover {
 }
 
 /********************************************
+	HERO BACKGROUNDS
+	Primary Page: 	 index.html, shop.html, product.html
+	Primary Purpose: mostly defining styles for each item and their surrounding container
+********************************************/
+/********************************************
+	STORE SECTION
 	Primary Page: 	 index.html, shop.html, product.html
 	Primary Purpose: mostly defining styles for each item and their surrounding container
 ********************************************/
@@ -532,6 +541,7 @@ span.nohref:hover {
 }
 
 /********************************************
+	PRODUCT SECTION
 	Primary Page: 	 product.html
 	Primary Purpose: styling the product image and description areas
 ********************************************/
@@ -743,6 +753,7 @@ span.nohref:hover {
 }
 
 /********************************************
+	CONTACT FORM
 	Primary Page: 	 index.html
 	Primary Purpose: basic filler content with dark background
 ********************************************/
@@ -754,6 +765,7 @@ span.nohref:hover {
   left: 0;
   background-color: rgba(35, 35, 35, 0.85);
   color: white;
+  overflow: scroll;
   z-index: -1;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-out;
@@ -867,6 +879,7 @@ span.nohref:hover {
 }
 
 /********************************************
+	DARK SECTIONS
 	Primary Page: 	 index.html
 	Primary Purpose: basic filler content with dark background
 ********************************************/
@@ -901,8 +914,16 @@ span.nohref:hover {
 .section.content.black h1 {
   margin-top: 0;
 }
+.section.content.black .button {
+  color: white;
+  font-style: normal;
+}
+.section.content.black .button:hover {
+  text-decoration: none;
+}
 
 /********************************************
+	GOOGLE MAPS SECTION
 	Primary Page: 	 all/master page
 	Primary Purpose: obvious
 ********************************************/
@@ -925,6 +946,7 @@ span.nohref:hover {
 }
 
 /********************************************
+	FOOTER
 	Primary Page: 	 all/master page
 	Primary Purpose: obvious
 ********************************************/
@@ -1072,21 +1094,13 @@ span.nohref:hover {
 /********************************************
 	MEDIA QUERIES
 ********************************************/
-@media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 3rem;
-  }
-
-  .section {
-    margin-top: 2rem 0;
-  }
-
+@media only screen and (max-width: 1050px) {
   .container {
-    max-width: 80%;
+    max-width: 47.5rem;
   }
 
   .section.beginning .center {
-    width: 85%;
+    width: 55%;
   }
   .section.beginning .center img {
     height: auto;
@@ -1096,11 +1110,77 @@ span.nohref:hover {
     font-size: 2rem;
   }
 
+  .section.store .item img {
+    height: 21rem;
+  }
+
+  .section.content.dark {
+    padding: 5rem 0;
+  }
+  .section.content.dark .container {
+    float: none;
+    width: 47.5rem;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .section.content.dark img {
+    display: none;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .section.store .item img {
+    height: 18rem;
+  }
+
+  .section.content.dark .container {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .section {
+    margin-top: 2rem 0;
+  }
+
+  .section.beginning {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+  .section.beginning .center {
+    width: 85%;
+  }
+
+  .section.follow {
+    display: none;
+  }
+
+  .section.hero.bg1, .section.hero.bg2, .section.hero.bg2 {
+    padding: 3rem 0;
+    background-position: bottom;
+  }
+  .section.hero.bg1 h1, .section.hero.bg2 h1, .section.hero.bg2 h1 {
+    font-size: 3.5rem;
+    margin: 3rem 0 0;
+  }
+
   .section.store .item {
     width: 50%;
   }
   .section.store .item img {
-    height: 12rem;
+    height: 15rem;
   }
   .section.store #hideifmobile {
     display: none;
@@ -1109,16 +1189,19 @@ span.nohref:hover {
     margin: 0 0.25rem;
   }
 
-  .section.content.dark .container {
-    float: none;
-    width: 80%;
-    padding: 0;
-    margin: 0 auto;
+  .contact .container {
+    width: 90%;
   }
-  .section.content.dark img {
-    display: none;
+  .contact .container form .column {
+    font-size: 1.15rem;
   }
 
+  .section.footer {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
   .section.footer .float-left {
     width: 80%;
   }
@@ -1130,7 +1213,16 @@ span.nohref:hover {
     color: white;
   }
 
+  #footerfollow {
+    display: none;
+  }
+
   .button {
     padding: 0.5rem 1.5rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .section.store .item img {
+    height: 12rem;
   }
 }
