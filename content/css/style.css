@@ -1,6 +1,10 @@
 /********************************************
  	BASE STYLES
 ********************************************/
+* {
+  border: none;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -347,101 +351,74 @@ span.nohref:hover {
   width: 100%;
   height: 25.5rem;
   margin: 0 auto;
-  -webkit-filter: blur(0) grayscale(100%);
-  filter: blur(0) grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
   filter: url("../../images/filter.svg#grayscale");
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
   z-index: -1;
 }
-.section.store .item .title {
-  position: relative;
+.section.store .item .overlay {
+  background-color: rgba(35, 35, 35, 0.75);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 0 0 2rem;
+  position: absolute;
+  right: 0;
+  bottom: -206px;
+  left: 0;
+}
+.section.store .item .overlay .title {
   display: block;
   text-align: center;
   color: white;
   font-family: "Knewave", cursive;
   font-size: 3rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   margin: 0 auto;
-  opacity: 0;
+  padding: 1rem 0;
   -webkit-transition: top 0.25s, opacity 0.25s;
   -moz-transition: top 0.25s, opacity 0.25s;
   transition: top 0.25s, opacity 0.25s;
 }
-.section.store .item .overlay {
-  background-color: transparent;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-.section.store .item .button {
-  position: absolute;
+.section.store .item .overlay .button {
   width: 120px;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0 auto;
   border-color: white;
   background-color: white;
   color: black;
-  opacity: 0;
 }
-.section.store .item .position {
-  position: absolute;
+.section.store .item .overlay .position {
   width: 90%;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0 auto;
   color: white;
-  opacity: 0;
   font-size: 2.5rem;
   -webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
   transition: all 0.25s;
 }
-.section.store .item .position:hover {
+.section.store .item .overlay .position:hover {
   background-color: transparent;
   border-color: none;
 }
-.section.store .item .button:hover {
+.section.store .item .overlay .button:hover {
   background-color: #f6a704;
   border-color: #f6a704;
 }
 .section.store .item:hover img {
-  -webkit-filter: blur(4px) grayscale(0);
-  filter: blur(4px) grayscale(0);
-  filter: url("../../images/filter.svg#blur");
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
 }
 .section.store .item:hover .overlay {
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.section.store .item:hover .title {
-  top: 20%;
-  opacity: 1;
-}
-.section.store .item:hover .button {
-  bottom: 20%;
-  opacity: 1;
-}
-.section.store .item:hover .position {
-  bottom: 20%;
-  opacity: 1;
+  bottom: 0;
 }
 .section.store .more {
+  position: relative;
   display: block;
   width: 100%;
-  padding: 1.5rem 0;
+  font-size: 2rem;
+  padding: 1rem 0;
   color: white;
   background-color: #ba0202;
   text-align: center;
@@ -730,7 +707,8 @@ span.nohref:hover {
   width: 50vw;
   left: -5rem;
   box-sizing: border-box;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  font-size: 2rem;
   margin: 0;
   text-align: center;
   background-color: #ba0202;
