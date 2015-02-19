@@ -432,7 +432,7 @@ span.nohref:hover {
 				width: 90%;
 				margin: 0 auto;
 				color: white;
-				font-size: 2.5rem;
+				font-size: 1.5rem;
 				@include transition(all 0.25s);
 			}
 			.position:hover {
@@ -1145,6 +1145,14 @@ span.nohref:hover {
 		}
 	}
 
+	.section.store.about {
+		.item {
+			img {
+				height: 20rem;
+			}
+		}
+	}
+
 	.section.content.dark {
 		padding: 5rem 0;
 		.container {
@@ -1169,6 +1177,14 @@ span.nohref:hover {
 		.item {
 			img {
 				height: 18rem;
+			}
+		}
+	}
+
+	.section.store.about {
+		.item {
+			img {
+				height: 16.5rem;
 			}
 		}
 	}
@@ -1232,6 +1248,21 @@ span.nohref:hover {
 		}
 	}
 
+	.section.store.about {
+		.item {
+			width: 33.333333333333333%;
+			img {
+				height: 14rem;
+			}
+			.title {
+				font-size: 2rem;
+			}
+			.position {
+				font-size: 1rem;
+			}
+		}
+	}
+
 	.contact {
 		.container {
 			width: 90%;
@@ -1280,6 +1311,14 @@ span.nohref:hover {
 		.item {
 			img {
 				height: 12rem;
+			}
+		}
+	}
+
+	.section.store.about {
+		.item {
+			img {
+				height: 10.5rem;
 			}
 		}
 	}
