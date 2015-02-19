@@ -399,7 +399,7 @@ span.nohref:hover {
   width: 90%;
   margin: 0 auto;
   color: white;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   -webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
   transition: all 0.25s;
@@ -964,13 +964,14 @@ span.nohref:hover {
   background-color: #ba0202;
   background-image: url("../../images/escheresque-background.png");
   background-size: 2rem 1rem;
+  text-align: center;
   z-index: 1;
 }
 .section.footer .float-left {
   width: 50%;
   text-align: left;
 }
-.section.footer .float-left a {
+.section.footer .float-left .footeritem, .section.footer .float-left a {
   display: block;
   color: white;
   font-size: 1.5rem;
@@ -987,19 +988,27 @@ span.nohref:hover {
 }
 .section.footer .float-right i {
   margin: 0 0.25rem;
-  color: #191919;
+  color: white;
   cursor: pointer;
   -webkit-transition: color 0.3s;
   -moz-transition: color 0.3s;
   transition: color 0.3s;
 }
 .section.footer .float-right i:hover {
+  color: #bfbfbf;
+}
+.section.footer a {
   color: white;
+  font-size: 0.75rem;
 }
 
 #footerfollow {
   background-color: transparent;
   z-index: -1;
+}
+
+.credit img {
+  width: 40%;
 }
 
 .backtotop {
@@ -1119,6 +1128,10 @@ span.nohref:hover {
     height: 21rem;
   }
 
+  .section.store.about .item img {
+    height: 20rem;
+  }
+
   .section.content.dark {
     padding: 5rem 0;
   }
@@ -1139,6 +1152,10 @@ span.nohref:hover {
 
   .section.store .item img {
     height: 18rem;
+  }
+
+  .section.store.about .item img {
+    height: 16.5rem;
   }
 
   .section.content.dark .container {
@@ -1194,6 +1211,19 @@ span.nohref:hover {
     margin: 0 0.25rem;
   }
 
+  .section.store.about .item {
+    width: 33.333333333333333%;
+  }
+  .section.store.about .item img {
+    height: 14rem;
+  }
+  .section.store.about .item .title {
+    font-size: 2rem;
+  }
+  .section.store.about .item .position {
+    font-size: 1rem;
+  }
+
   .contact .container {
     width: 90%;
   }
@@ -1229,5 +1259,9 @@ span.nohref:hover {
 @media only screen and (max-width: 480px) {
   .section.store .item img {
     height: 12rem;
+  }
+
+  .section.store.about .item img {
+    height: 10.5rem;
   }
 }

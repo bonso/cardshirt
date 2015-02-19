@@ -432,7 +432,7 @@ span.nohref:hover {
 				width: 90%;
 				margin: 0 auto;
 				color: white;
-				font-size: 2.5rem;
+				font-size: 1.5rem;
 				@include transition(all 0.25s);
 			}
 			.position:hover {
@@ -978,16 +978,20 @@ span.nohref:hover {
     background-color: $red;
     background-image: url('../../images/escheresque-background.png');
     background-size: 2rem 1rem;
+	text-align: center;
     z-index: 1;
     .float-left {
         width: 50%;
         text-align: left;
+		.footeritem {
+			display: block;
+			color: white;
+			font-size: 1.5rem;
+			font-style: normal;
+			text-transform: uppercase;
+		}
         a {
-            display: block;
-            color: white;
-            font-size: 1.5rem;
-            font-style: normal;
-            text-transform: uppercase;
+            @extend .footeritem;
         }
         a.bold {
             font-weight: bold;
@@ -999,19 +1003,29 @@ span.nohref:hover {
         padding-top: 0.75rem;
         i {
             margin: 0 0.25rem;
-            color: darken($grey, 80%);
+            color: white;
             cursor: pointer;
             @include transition(color 0.3s);
         }
-        i:hover {
-            color: white;
-        }
+		i:hover {
+			color: darken(white, 25%);
+		}
     }
+	a {
+		color: white;
+		font-size: 0.75rem;
+	}
 }
 
 #footerfollow {
     background-color: transparent;
     z-index: -1;
+}
+
+.credit {
+	img {
+		width: 40%;
+	}
 }
 
 .backtotop {
@@ -1145,6 +1159,14 @@ span.nohref:hover {
 		}
 	}
 
+	.section.store.about {
+		.item {
+			img {
+				height: 20rem;
+			}
+		}
+	}
+
 	.section.content.dark {
 		padding: 5rem 0;
 		.container {
@@ -1169,6 +1191,14 @@ span.nohref:hover {
 		.item {
 			img {
 				height: 18rem;
+			}
+		}
+	}
+
+	.section.store.about {
+		.item {
+			img {
+				height: 16.5rem;
 			}
 		}
 	}
@@ -1232,6 +1262,21 @@ span.nohref:hover {
 		}
 	}
 
+	.section.store.about {
+		.item {
+			width: 33.333333333333333%;
+			img {
+				height: 14rem;
+			}
+			.title {
+				font-size: 2rem;
+			}
+			.position {
+				font-size: 1rem;
+			}
+		}
+	}
+
 	.contact {
 		.container {
 			width: 90%;
@@ -1280,6 +1325,14 @@ span.nohref:hover {
 		.item {
 			img {
 				height: 12rem;
+			}
+		}
+	}
+
+	.section.store.about {
+		.item {
+			img {
+				height: 10.5rem;
 			}
 		}
 	}
