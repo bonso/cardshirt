@@ -87,4 +87,8 @@ $('document').ready(function() {
     $('.contact i.fa-close').click(function() {
         $('.contact').removeClass('on');
     });
+
+    $('.section.store .item').hover(function() {
+        $(this).children('.overlay').slideToggle(300);
+    });
 });

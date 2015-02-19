@@ -236,6 +236,14 @@ span.nohref:hover {
   font-size: 1rem;
   padding: 0.25rem 1.5rem;
 }
+.section.header .box .dropdown .error {
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+.section.header .box .dropdown .error > * {
+  vertical-align: middle;
+}
 .section.header .box.left {
   left: 0;
   background-image: url("../../images/sandwich-bar.png");
@@ -343,7 +351,7 @@ span.nohref:hover {
   float: left;
   text-align: center;
   padding: 0;
-  cursor: pointer;
+  cursor: default;
 }
 .section.store .item img {
   position: relative;
@@ -361,13 +369,11 @@ span.nohref:hover {
 }
 .section.store .item .overlay {
   background-color: rgba(35, 35, 35, 0.75);
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  display: none;
   padding: 0 0 2rem;
   position: absolute;
   right: 0;
-  bottom: -206px;
+  bottom: 0;
   left: 0;
 }
 .section.store .item .overlay .title {
@@ -410,9 +416,6 @@ span.nohref:hover {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
 }
-.section.store .item:hover .overlay {
-  bottom: 0;
-}
 .section.store .more {
   position: relative;
   display: block;
@@ -426,6 +429,7 @@ span.nohref:hover {
   text-decoration: none;
   font-style: normal;
   font-weight: bold;
+  border-bottom: 0.25rem solid #3c0101;
   cursor: pointer;
   clear: both;
   -webkit-transition: background-color 0.15s;
@@ -507,10 +511,16 @@ span.nohref:hover {
   padding-top: 1rem;
 }
 
-.section.morebg {
+.section.store.about {
   background-image: none;
   background-color: #232323;
   color: white;
+}
+.section.store.about .item {
+  width: 25%;
+}
+.section.store.about .item img {
+  height: 19rem;
 }
 
 .section.store.error {
@@ -715,6 +725,7 @@ span.nohref:hover {
   color: white;
   font-style: normal;
   text-transform: uppercase;
+  border-bottom: 0.25rem solid black;
   -webkit-transition: background-color 0.2s;
   -moz-transition: background-color 0.2s;
   transition: background-color 0.2s;
@@ -885,19 +896,35 @@ span.nohref:hover {
   clear: both;
 }
 
-.section.content.black {
+.section.content.black, .section.content.red {
   background-color: #232323;
   color: white;
 }
-.section.content.black h1 {
+.section.content.black h1, .section.content.red h1 {
   margin-top: 0;
 }
-.section.content.black .button {
+.section.content.black .button, .section.content.red .button {
   color: white;
   font-style: normal;
 }
-.section.content.black .button:hover {
+.section.content.black .button:hover, .section.content.red .button:hover {
   text-decoration: none;
+}
+.section.content.black img.sponsor, .section.content.red img.sponsor {
+  display: inline-block;
+  width: 16.66666666666667%;
+  margin: 0 1.16666666666667%;
+  vertical-align: middle;
+}
+
+.section.content.red {
+  background-color: #ba0202;
+}
+.section.content.red .button {
+  border-color: black;
+}
+.section.content.red .button:hover {
+  border-color: #f6a704;
 }
 
 /********************************************

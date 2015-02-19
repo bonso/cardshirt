@@ -249,6 +249,14 @@ span.nohref:hover {
                     padding: 0.25rem 1.5rem;
                 }
             }
+			.error {
+				color: white;
+				padding: 1rem 0;
+				text-align: center;
+			}
+			.error > * {
+				vertical-align: middle;
+			}
         }
     }
     .box.left {
@@ -384,7 +392,7 @@ span.nohref:hover {
         text-align: center;
         // padding: 1.5rem 0;
 		padding: 0;
-        cursor: pointer;
+        cursor: default;
         img {
             position: relative;
             display: block;
@@ -398,10 +406,11 @@ span.nohref:hover {
         }
         .overlay {
             background-color: rgba($black, 0.75);
-            @include transition(all 0.3s);
+            // @include transition(all 0.3s);
+			display: none;
 			padding: 0 0 2rem;
             position: absolute;
-            right: 0; bottom: -206px; left: 0;
+            right: 0; bottom: 0; left: 0;
 			.title {
 				display: block;
 				text-align: center;
@@ -441,9 +450,10 @@ span.nohref:hover {
             @include filter(grayscale(0));
 			// filter: url('../../images/filter.svg#blur');
         }
-        .overlay {
-			bottom: 0;
-        }
+        // .overlay {
+		// 	top: auto;
+		// 	bottom: 0;
+        // }
     }
     .more {
 		position: relative;
@@ -458,6 +468,7 @@ span.nohref:hover {
         text-decoration: none;
         font-style: normal;
         font-weight: bold;
+		border-bottom: 0.25rem solid darken($red, 25%);
         cursor: pointer;
         clear: both;
         @include transition(background-color 0.15s);
@@ -536,10 +547,16 @@ span.nohref:hover {
 	padding-top: 1rem;
 }
 
-.section.morebg {
+.section.store.about {
 	background-image: none;
 	background-color: $black;
 	color: white;
+	.item {
+		width: 25%;
+		img {
+			height: 19rem;
+		}
+	}
 }
 
 .section.store.error {
@@ -741,6 +758,7 @@ span.nohref:hover {
 			color: white;
 			font-style: normal;
 			text-transform: uppercase;
+			border-bottom: 0.25rem solid darken($red, 50%);
 			@include transition(background-color 0.2s);
 		}
 		.addtocart:hover {
@@ -906,6 +924,23 @@ span.nohref:hover {
 	}
 	.button:hover {
 		text-decoration: none;
+	}
+	img.sponsor {
+		display: inline-block;
+		width: 16.66666666666667%;
+		margin: 0 1.16666666666667%;
+		vertical-align: middle;
+	}
+}
+
+.section.content.red {
+	@extend .section.content.black;
+	background-color: $red;
+	.button {
+		border-color: black;
+	}
+	.button:hover {
+		border-color: $yellow;
 	}
 }
 
