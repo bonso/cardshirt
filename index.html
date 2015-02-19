@@ -16,10 +16,10 @@
 	<div class="contact">
 		<div class="container">
 			<h1>contact us</h1>
-			<form>
+			<form method="post" name="contact_form" action="contact-form-handler.php">
 				<div class="row">
 					<span class="column size-4">Name</span>
-					<input type="text" name="name" class="column size-8" placeholder="Whatever your student ID card says it is">
+					<input type="text" name="name" class="column size-8" placeholder="First and last name">
 				</div>
 				<div class="row">
 					<span class="column size-4">Email</span>
@@ -56,27 +56,31 @@
         </div>
         <a href="./index.html"><img class="logo" src="./images/icon.png"></a>
         <div class="box right">
-            <div class="dropdown">
-                <div class="item">
-                    <span class="cell bold">The Rise</span>
-                    <span class="cell"><span class="tick">-</span>1<span class="tick">+</span></span>
-                    <span class="cell">Size: <span class="bold">L</span></span>
-                    <span class="cell">$15.00</span>
-                    <span class="cell x">x</span>
-                </div>
-                <div class="item">
-                    <span class="cell bold">Cityscape - White</span>
-                    <span class="cell"><span class="tick">-</span>1<span class="tick">+</span></span>
-                    <span class="cell">Size: <span class="bold">L</span></span>
-                    <span class="cell">$15.00</span>
-                    <span class="cell x">x</span>
-                </div>
-                <div class="item end">
-                    <span class="cell">Total: <span class="price">$30.00</span></span>
-                    <span class="cell"><a href="#" class="button">Checkout</a></span>
-                </div>
-            </div>
-        </div>
+			<!-- <span id="itemcount">2</span> -->
+			<div class="dropdown">
+				<div class="error">
+					<i class="fa fa-warning"></i> currently under construction, but check back soon!
+				</div>
+				<!-- <div class="item">
+					<span class="cell bold">The Rise</span>
+					<span class="cell"><span class="tick">-</span>1<span class="tick">+</span></span>
+					<span class="cell">Size: <span class="bold">L</span></span>
+					<span class="cell">$15.00</span>
+					<span class="cell x">x</span>
+				</div>
+				<div class="item">
+					<span class="cell bold">Cityscape - White</span>
+					<span class="cell"><span class="tick">-</span>1<span class="tick">+</span></span>
+					<span class="cell">Size: <span class="bold">L</span></span>
+					<span class="cell">$15.00</span>
+					<span class="cell x">x</span>
+				</div>
+				<div class="item end">
+					<span class="cell">Total: <span class="price">$30.00</span></span>
+					<span class="cell"><a href="#" class="button">Checkout</a></span>
+				</div> -->
+			</div>
+		</div>
     </div>
     <div class="section beginning">
         <div class="center">
@@ -90,21 +94,22 @@
 		<h1>our products</h1>
 		<div class="item">
 			<img src="./images/designs/bonso-classact-cityscapered.png">
-			<div class="overlay"></div>
-			<span class="title">Cityscape - Red</span>
-			<a href="./product.html" class="button">Details</a>
+			<div class="overlay">
+				<span class="title">Cityscape - Red</span>
+				<!-- <a href="./product.html" class="button">Details</a> -->
+			</div>
 		</div>
 		<div class="item">
 			<img src="./images/designs/bonso-classact-therise.png">
-			<div class="overlay"></div>
-			<span class="title">The Rise</span>
-			<a href="./product.html" class="button">Details</a>
+			<div class="overlay">
+				<span class="title">The Rise</span>
+			</div>
 		</div>
 		<div id="hideifmobile" class="item">
 			<img src="./images/designs/bonso-classact-cardinalpride.png">
-			<div class="overlay"></div>
-			<span class="title">Cardinal Pride</span>
-			<a href="./product.html" class="button">Details</a>
+			<div class="overlay">
+				<span class="title">Cardinal Pride</span>
+			</div>
 		</div>
 		<a href="shop.html" class="more">Shop All</a>
 	</div>

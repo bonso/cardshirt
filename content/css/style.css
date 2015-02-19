@@ -1,6 +1,10 @@
 /********************************************
  	BASE STYLES
 ********************************************/
+* {
+  border: none;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -232,6 +236,14 @@ span.nohref:hover {
   font-size: 1rem;
   padding: 0.25rem 1.5rem;
 }
+.section.header .box .dropdown .error {
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+.section.header .box .dropdown .error > * {
+  vertical-align: middle;
+}
 .section.header .box.left {
   left: 0;
   background-image: url("../../images/sandwich-bar.png");
@@ -339,7 +351,7 @@ span.nohref:hover {
   float: left;
   text-align: center;
   padding: 0;
-  cursor: pointer;
+  cursor: default;
 }
 .section.store .item img {
   position: relative;
@@ -347,101 +359,69 @@ span.nohref:hover {
   width: 100%;
   height: 25.5rem;
   margin: 0 auto;
-  -webkit-filter: blur(0) grayscale(100%);
-  filter: blur(0) grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
   filter: url("../../images/filter.svg#grayscale");
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
   z-index: -1;
 }
-.section.store .item .title {
-  position: relative;
+.section.store .item .overlay {
+  background-color: rgba(35, 35, 35, 0.75);
+  display: none;
+  padding: 0 0 2rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.section.store .item .overlay .title {
   display: block;
   text-align: center;
   color: white;
   font-family: "Knewave", cursive;
   font-size: 3rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   margin: 0 auto;
-  opacity: 0;
+  padding: 1rem 0;
   -webkit-transition: top 0.25s, opacity 0.25s;
   -moz-transition: top 0.25s, opacity 0.25s;
   transition: top 0.25s, opacity 0.25s;
 }
-.section.store .item .overlay {
-  background-color: transparent;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-.section.store .item .button {
-  position: absolute;
+.section.store .item .overlay .button {
   width: 120px;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0 auto;
   border-color: white;
   background-color: white;
   color: black;
-  opacity: 0;
 }
-.section.store .item .position {
-  position: absolute;
+.section.store .item .overlay .position {
   width: 90%;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0 auto;
   color: white;
-  opacity: 0;
   font-size: 2.5rem;
   -webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
   transition: all 0.25s;
 }
-.section.store .item .position:hover {
+.section.store .item .overlay .position:hover {
   background-color: transparent;
   border-color: none;
 }
-.section.store .item .button:hover {
+.section.store .item .overlay .button:hover {
   background-color: #f6a704;
   border-color: #f6a704;
 }
 .section.store .item:hover img {
-  -webkit-filter: blur(4px) grayscale(0);
-  filter: blur(4px) grayscale(0);
-  filter: url("../../images/filter.svg#blur");
-}
-.section.store .item:hover .overlay {
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.section.store .item:hover .title {
-  top: 20%;
-  opacity: 1;
-}
-.section.store .item:hover .button {
-  bottom: 20%;
-  opacity: 1;
-}
-.section.store .item:hover .position {
-  bottom: 20%;
-  opacity: 1;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
 }
 .section.store .more {
+  position: relative;
   display: block;
   width: 100%;
-  padding: 1.5rem 0;
+  font-size: 2rem;
+  padding: 1rem 0;
   color: white;
   background-color: #ba0202;
   text-align: center;
@@ -449,6 +429,7 @@ span.nohref:hover {
   text-decoration: none;
   font-style: normal;
   font-weight: bold;
+  border-bottom: 0.25rem solid #3c0101;
   cursor: pointer;
   clear: both;
   -webkit-transition: background-color 0.15s;
@@ -530,10 +511,16 @@ span.nohref:hover {
   padding-top: 1rem;
 }
 
-.section.morebg {
+.section.store.about {
   background-image: none;
   background-color: #232323;
   color: white;
+}
+.section.store.about .item {
+  width: 25%;
+}
+.section.store.about .item img {
+  height: 19rem;
 }
 
 .section.store.error {
@@ -730,13 +717,15 @@ span.nohref:hover {
   width: 50vw;
   left: -5rem;
   box-sizing: border-box;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  font-size: 2rem;
   margin: 0;
   text-align: center;
   background-color: #ba0202;
   color: white;
   font-style: normal;
   text-transform: uppercase;
+  border-bottom: 0.25rem solid black;
   -webkit-transition: background-color 0.2s;
   -moz-transition: background-color 0.2s;
   transition: background-color 0.2s;
@@ -907,19 +896,35 @@ span.nohref:hover {
   clear: both;
 }
 
-.section.content.black {
+.section.content.black, .section.content.red {
   background-color: #232323;
   color: white;
 }
-.section.content.black h1 {
+.section.content.black h1, .section.content.red h1 {
   margin-top: 0;
 }
-.section.content.black .button {
+.section.content.black .button, .section.content.red .button {
   color: white;
   font-style: normal;
 }
-.section.content.black .button:hover {
+.section.content.black .button:hover, .section.content.red .button:hover {
   text-decoration: none;
+}
+.section.content.black img.sponsor, .section.content.red img.sponsor {
+  display: inline-block;
+  width: 16.66666666666667%;
+  margin: 0 1.16666666666667%;
+  vertical-align: middle;
+}
+
+.section.content.red {
+  background-color: #ba0202;
+}
+.section.content.red .button {
+  border-color: black;
+}
+.section.content.red .button:hover {
+  border-color: #f6a704;
 }
 
 /********************************************
