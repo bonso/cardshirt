@@ -1,0 +1,517 @@
+@import 'compass/css3';
+@import 'compass/css3/filter';
+@import '../bourbon/bourbon';
+
+$header-font: 'Yanone Kaffeesatz', sans-serif;
+$secondary-header-font: 'Yanone Kaffeesatz', sans-serif;
+$copy-font: 'Raleway', sans-serif;
+
+$yellow: #FFC908;
+$red: #F10F00;
+$orange: #FC8800;
+$blue: #006A76;
+$black: #232323;
+
+
+/********************************************
+ 	BASE STYLES
+********************************************/
+* {
+	border: none;
+	// damn you IE
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+    font-family: $copy-font;
+    text-rendering: optimizeLegibility;
+    font-size: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+    font-family: $header-font;
+	font-weight: 700;
+	font-size: 6rem;
+}
+
+h2 {
+	font-family: $secondary-header-font;
+	font-size: 2.25rem;
+	font-weight: 300;
+	margin: 0;
+	border-bottom: 1px solid black;
+}
+
+a {
+    color: $red;
+    text-decoration: none;
+    font-style: italic;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+span.nohref {
+	color: $red;
+	text-indent: none;
+	font-style: italic;
+	cursor: pointer;
+}
+
+span.nohref:hover {
+	text-decoration: underline;
+}
+
+.section {
+    width: calc(100% - 8rem);
+	padding: 5rem 0;
+	margin: 0;
+	clear: both;
+    background-color: white;
+    h1 {
+        margin-top: 0;
+    }
+}
+
+.container {
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+	overflow: hidden;
+	p {
+		text-align: left;
+        font-size: 1.25rem;
+		font-weight: 300;
+	}
+}
+
+
+/********************************************
+	HEADER
+	Primary Page: 	 all/master page
+	Primary Purpose: obvious
+********************************************/
+
+$button-size : 1.25rem; 
+$transition: .3s;
+@mixin line {
+    display: inline-block;
+    width: $button-size;
+    height: 0.1875rem;
+    background: white;
+    border-radius: 0.125rem;
+    @include transition(all $transition);
+}
+
+#header {
+    position: fixed;
+    top: 0;
+	right: 0;
+    height: 100%;
+    width: 8rem;
+	background-color: $black;
+    @include transition(all $transition);
+    z-index: 4;
+//    .container {
+//        position: relative;
+//        overflow: visible;
+//    }
+    ul.navitems {
+        height: 20rem;
+        width: 8rem;
+        position: absolute;
+        top: 0; right: 0; bottom: 0;
+        margin: auto 0;
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        color: white;
+        li {
+            box-sizing: border-box;
+            height: 4rem;
+            padding: 1.5rem 0;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba(white, 0.25);
+            }
+        }
+    }
+    .logo {
+    	display: block;
+        position: absolute;
+        right: 0; bottom: 2rem; left: 0;
+    	width: 50%;
+        margin: 0 auto;
+        z-index: 1;
+    }
+    .lines-button {
+        display: inline-block;
+        position: absolute;
+        top: 0; left: 0;
+        height: 4rem;
+        width: 8rem;
+        @include transition(all $transition);
+        cursor: pointer;
+        user-select: none;
+        background-color: $black;
+        z-index: 1;
+        &:hover {
+            background-color: white;
+            opacity: 1;
+            .lines {
+                &:before { top: 0.35rem; background: black; }
+                &:after { top: -0.35rem; background: black; }
+            }
+        }
+        &:active {
+            transition: 0;
+        }
+        &:focus {
+            outline: none;
+        }
+        &.x.close {
+            background-color: white;
+            .lines {
+                /*overlay the lines by setting both their top values to 0*/
+                &:before, &:after{
+                    transform-origin: 50% 50%;
+                    top:0;
+                    width: $button-size;
+                    background: black;
+                }
+                // rotate the lines to form the x shape
+                &:before{
+                    transform: rotate3d(0,0,1,45deg); 
+                }
+                &:after{
+                    transform: rotate3d(0,0,1,-45deg); 
+                }
+            }
+        }
+        .lines {
+            //create middle line
+            @include line;
+            position: relative;
+            /*hide the middle line*/
+            background: transparent; 
+            /*create the upper and lower lines as pseudo-elements of the middle line*/
+            &:before, &:after {
+                @include line;
+                position: absolute;
+                left:0;
+                content: '';
+                transform-origin: 0.125rem center;
+            }
+            &:before { top: 0.25rem; }
+            &:after { top: -0.25rem; }
+        }
+    }
+}
+
+#body {
+    position: absolute;
+    top: 0; left: 0;
+    width: calc(100% - 8rem);
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.section.intro {
+//    background-image: url('https://farm9.staticflickr.com/8634/16719027815_54ce4b769c_o.jpg');
+//    background-size: 100% 100%;
+//    box-sizing: border-box;
+//    height: 100%;
+//    width: 100%;
+    position: relative;
+    background-color: transparent;
+    color: white;
+    video#bgvid {
+        position: absolute;
+        top: 0; left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        background: url('../../images/videos/1200-Gonzofest.png') no-repeat;
+        background-size: cover;
+    }
+    h1 {
+        font-size: 12rem;
+        margin: 2rem 0 0;
+        text-align: left;
+//        color: $yellow;
+    }
+    span.mission {
+        display: block;
+        margin: 0 auto 2rem;
+        font-size: 2rem;
+        text-align: left;
+//        color: $yellow;
+    }
+    img.logo {
+        display: block;
+        position: absolute;
+        top: 2rem; left: 10%;
+    	height: 2rem;
+    }
+}
+
+.hb { // used to stand for herringbone :(
+	position: relative;
+    width: calc(50% - 4rem);
+    height: 75%;
+    float: left;
+    background-size: auto 125%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 2;
+    @include transition(all $transition);
+    .layer {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: auto;
+        width: 100%;
+        background-color: rgba($orange, 0.6);
+        color: white;
+        overflow-y: scroll;
+        opacity: 0;
+        @include transition(all $transition);
+        .strike {
+            display: block;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            span {
+                position: relative;
+                display: inline-block;
+                &:before, &:after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    height: 1px;
+                    background: white;
+                }
+                &:before {
+                    right: 100%;
+                    margin-right: 15px;
+                }
+                &:after {
+                    left: 100%;
+                    margin-left: 15px;
+                }
+            }
+        }
+        .deets {
+            display: none;
+            padding: 1rem 2rem;
+            .title {
+                text-align: center;
+            }
+        }
+    }
+    h1 {
+        font-size: 8rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    &.active {
+        z-index: 3;
+        .layer {
+            right: 100%;
+            background-color: $orange;
+            opacity: 1;
+            .strike {
+                display: none;
+            }
+            .deets {
+                display: block;
+            }
+        }
+    }
+    &:hover {
+        background-size: auto 135%;
+        z-index: 3;
+        .layer {
+            opacity: 1;
+        }
+    }
+    &:nth-child(2n) {
+        .layer {
+            right: auto; left: 0;
+        }
+        &.active {
+            .layer {
+                left: 100%;
+            }
+        }
+    }
+    &.ja {
+        height: 100%;
+        background-image: url('https://farm9.staticflickr.com/8639/16717808201_84cc2decd5_o.jpg');
+    }
+    &.cm {
+        height: 100%;
+        background-image: url('http://static1.squarespace.com/static/5360134ce4b0c25f42c1f29a/536c3f1ae4b03a731bda98ba/536c3f26e4b03a731bda98d6/1399602985003/Meagan+Jordan+4.jpg');
+    }
+    &.ls {
+        background-image: url('https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xap1/t51.2885-15/10388043_1470381606537513_943913956_n.jpg');
+    }
+    &.fse {
+        background-image: url('https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/11731633_407131619492850_1451372770986639897_o.jpg');
+    }
+    &.se {
+        width: calc(33.3333333333% - 2.66666667rem);
+        background-image: url('https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/11026102_855614741177948_7234933820865938263_o.jpg');
+    }
+    &.bq {
+        width: calc(33.3333333333% - 2.66666667rem);
+        background-image: url('https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/1899910_862962700390205_7867859187065792344_n.jpg?oh=c0892dc3ab387da64ff3629372e2fd6e&oe=562894AA');
+        background-size: auto 150%;
+        &:hover {
+            background-size: auto 175%;
+        }
+    }
+    &.mr {
+        width: calc(33.3333333333% - 2.66666667rem);
+        background-image: url('https://scontent-sea1-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10409288_385936911603111_5839781715589726846_n.jpg?oh=0b3ed86940b26c7ab2aa1c65cd5fe7ae&oe=56193ECF');
+        .layer {
+            right: 0; left: auto !important;
+        }
+        &.active {
+            .layer {
+                right: 100% !important;
+            }
+        }
+    }
+}
+
+.section.calendar {
+    .cal {
+        width: 100%;
+        padding: 4rem 0;
+        clear: both;
+        div {
+            box-sizing: border-box;
+            padding: 2rem 0;
+            float: left;
+            border-top: 1px solid $blue;
+        }
+        .time {
+            width: 20%;
+            margin: 0 2.5% 0 5%;
+            border-top-color: $orange;
+            span { 
+                font-weight: bold;
+                color: $blue; 
+            } 
+        }
+        .deets {
+            width: 65%;
+            margin: 0 5% 0 2.5%;
+            h1 {
+                font-size: 2rem;
+                margin: 0;
+                color: $orange;
+            }
+            h2 {
+                font-family: $copy-font;
+                font-size: 1rem;
+                font-weight: bold;
+                border-bottom: none;
+                margin: 0;
+                color: $blue;
+                span {
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
+
+.section.background {
+    position: relative;
+    height: 8rem;
+    background-image: url('../../images/cardsfest/tasteoflouisville.jpg');
+    background-size: cover;
+    h1 {
+        position: absolute;
+        bottom: 0; right: 0; left: 0;
+        width: 60rem;
+        font-size: 9rem;
+        font-weight: bold;
+        text-align: center;
+        line-height: 0.75;
+        margin: 0 auto;
+        padding: 0;
+        color: white;
+    }
+}
+
+.section.food {
+    img {
+        display: inline-block;
+        width: 20%;
+        margin: 1rem 2.5%;
+    }
+}
+
+.section.map {
+    position: relative;
+    padding: 0;
+    height: 50%;
+    #map-canvas {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.section.footer {
+    background-color: $blue;
+    color: white;
+    span.bigger {
+        text-transform: uppercase;
+        font-size: 1.35rem;
+        color: $orange;
+    }
+    hr {
+        width: 5rem;
+        height: 1px;
+        background-color: white;
+        margin: 1rem auto;
+    }
+}
+
+.button {
+	display: inline-block;
+	font-size: 2rem;
+	font-weight: normal;
+	padding: 0.5rem 2rem;
+	background-color: transparent;
+	border: 0.125rem solid white;
+    border-radius: 0.5rem;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+    font-style: normal;
+	cursor: pointer;
+	@include transition(all $transition);
+}
+
+.button:hover {
+	background-color: white;
+    color: black;
+	text-decoration: none;
+}
