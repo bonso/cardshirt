@@ -133,14 +133,24 @@ $transition: .3s;
         list-style: none;
         padding: 0;
         text-align: center;
-        color: white;
+//        color: white;
         li {
+            position: relative;
             box-sizing: border-box;
             height: 4rem;
             padding: 1.5rem 0;
+            color: rgba(white, 0.8);
             cursor: pointer;
+            @include transition(all $transition);
+            span {
+                position: absolute;
+                bottom: 0; left: 0;
+                height: 0.125rem;
+                width: 0;
+                background-color: $yellow;
+            }
             &:hover {
-                background-color: rgba(white, 0.25);
+                color: white;
             }
         }
     }
