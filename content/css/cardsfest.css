@@ -126,7 +126,8 @@ span.nohref:hover {
   background-color: #ffc908;
 }
 #header ul.navitems li:hover {
-  color: white;
+  color: black;
+  background-color: white;
 }
 #header .logo {
   display: block;
