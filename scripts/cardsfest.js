@@ -1,8 +1,10 @@
 var scrollTop = 0;
+var homeTop = 0;
 var artistsTop = $('#artists').position().top;
 var calendarTop = $('#calendar').position().top;
 var sponsorsTop = $('#sponsors').position().top;
 var mapTop = $('#map-canvas').parent().position().top;
+var widget1200 = SC.Widget(document.getElementById('sc-widget-1200'));
 
 /// ARGS DEFS:
 //  i = li ending (a = artists, c = calendar, s = sponsors)
@@ -25,28 +27,44 @@ function closeLiSpan(args) {
 $(window).scroll(function() {
 	scrollTop = $(window).scrollTop();
 	
-	if (scrollTop >= artistsTop) {
-		expandLiSpan('a', artistsTop, calendarTop);
-		if (scrollTop >= calendarTop) {
-			expandLiSpan('c', calendarTop, sponsorsTop);
-			if (scrollTop >= sponsorsTop) {
-				expandLiSpan('s', sponsorsTop, mapTop);
+	if (scrollTop >= 10) {
+		expandLiSpan('h', homeTop, artistsTop);
+		if (scrollTop >= artistsTop) {
+			expandLiSpan('a', artistsTop, calendarTop);
+			if (scrollTop >= calendarTop) {
+				expandLiSpan('c', calendarTop, sponsorsTop);
+				if (scrollTop >= sponsorsTop) {
+					expandLiSpan('s', sponsorsTop, mapTop);
+				} else {
+					closeLiSpan('s');
+				}
 			} else {
-				closeLiSpan('s');
+				closeLiSpan('c');
 			}
 		} else {
-			closeLiSpan('c');
+			closeLiSpan('a');
 		}
 	} else {
-		closeLiSpan('a', 'c', 's');
+		closeLiSpan('h', 'a', 'c', 's');
 	}
 });
-
-var widget1200 = SC.Widget(document.getElementById('sc-widget-1200'));
 
 $('.lines-button').click(function() {
 	$(this).toggleClass('close');
 });
+
+$('#header ul.navitems li').click(function() {
+	if ($(this)[0].id == "lih") {
+		$('html, body').animate({ scrollTop: 0 }, 1000);
+	} else if ($(this)[0].id == "lia") {
+		$('html, body').animate({ scrollTop: artistsTop }, 1000);
+	} else if ($(this)[0].id == "lic") {
+		$('html, body').animate({ scrollTop: calendarTop }, 1000);
+	} else if ($(this)[0].id == "lis") {
+		$('html, body').animate({ scrollTop: sponsorsTop }, 1000);
+	}
+});
+
 $('.hb').click(function() {
 	$(this).toggleClass('active').promise().done(function() {
 		if ($(this).hasClass('ja')) {
@@ -57,6 +75,10 @@ $('.hb').click(function() {
 			}
 		}
 	});
+});
+
+$('.section.calendar li.product').hover(function() {
+    $(this).children('.overlay').slideToggle(300);
 });
 
 function initialize() {

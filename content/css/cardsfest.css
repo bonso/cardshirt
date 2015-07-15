@@ -21,7 +21,8 @@ body {
 h1 {
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-weight: 700;
-  font-size: 6rem;
+  font-size: 10rem;
+  margin-bottom: 0.4em;
 }
 
 h2 {
@@ -88,7 +89,7 @@ span.nohref:hover {
   right: 0;
   height: 100%;
   width: 8rem;
-  background-color: #232323;
+  background-color: #eeeeee;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -111,7 +112,7 @@ span.nohref:hover {
   box-sizing: border-box;
   height: 4rem;
   padding: 1.5rem 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -126,8 +127,8 @@ span.nohref:hover {
   background-color: #ffc908;
 }
 #header ul.navitems li:hover {
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: #232323;
 }
 #header .logo {
   display: block;
@@ -151,20 +152,20 @@ span.nohref:hover {
   transition: all 0.3s;
   cursor: pointer;
   user-select: none;
-  background-color: #232323;
+  background-color: #eeeeee;
   z-index: 1;
 }
 #header .lines-button:hover {
-  background-color: white;
+  background-color: #232323;
   opacity: 1;
 }
 #header .lines-button:hover .lines:before {
   top: 0.35rem;
-  background: black;
+  background: white;
 }
 #header .lines-button:hover .lines:after {
   top: -0.35rem;
-  background: black;
+  background: white;
 }
 #header .lines-button:active {
   transition: 0;
@@ -173,7 +174,7 @@ span.nohref:hover {
   outline: none;
 }
 #header .lines-button.x.close {
-  background-color: white;
+  background-color: #232323;
 }
 #header .lines-button.x.close .lines {
   /*overlay the lines by setting both their top values to 0*/
@@ -182,7 +183,7 @@ span.nohref:hover {
   transform-origin: 50% 50%;
   top: 0;
   width: 1.25rem;
-  background: black;
+  background: white;
 }
 #header .lines-button.x.close .lines:before {
   transform: rotate3d(0, 0, 1, 45deg);
@@ -194,7 +195,7 @@ span.nohref:hover {
   display: inline-block;
   width: 1.25rem;
   height: 0.1875rem;
-  background: white;
+  background: #232323;
   border-radius: 0.125rem;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -208,7 +209,7 @@ span.nohref:hover {
   display: inline-block;
   width: 1.25rem;
   height: 0.1875rem;
-  background: white;
+  background: #232323;
   border-radius: 0.125rem;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -255,7 +256,7 @@ span.nohref:hover {
   background-size: cover;
 }
 .section.intro h1 {
-  font-size: 12rem;
+  font-size: 15rem;
   margin: 2rem 0 0;
   text-align: left;
 }
@@ -271,6 +272,20 @@ span.nohref:hover {
   top: 2rem;
   left: 10%;
   height: 2rem;
+}
+
+.lefthb .layer, .hb.ja .layer, .hb.ls .layer, .hb.se .layer {
+  left: 0;
+}
+.lefthb.active .layer, .active.hb.ja .layer, .active.hb.ls .layer, .active.hb.se .layer {
+  left: 100%;
+}
+
+.righthb .layer, .hb.cm .layer, .hb.fse .layer, .hb.bq .layer, .hb.mr .layer {
+  right: 0;
+}
+.righthb.active .layer, .active.hb.cm .layer, .active.hb.fse .layer, .active.hb.bq .layer, .active.hb.mr .layer {
+  right: 100%;
 }
 
 .hb {
@@ -290,9 +305,7 @@ span.nohref:hover {
 .hb .layer {
   position: absolute;
   top: 0;
-  right: 0;
   bottom: 0;
-  left: auto;
   width: 100%;
   background-color: rgba(252, 136, 0, 0.6);
   color: white;
@@ -344,7 +357,6 @@ span.nohref:hover {
   z-index: 3;
 }
 .hb.active .layer {
-  right: 100%;
   background-color: #fc8800;
   opacity: 1;
 }
@@ -360,13 +372,6 @@ span.nohref:hover {
 }
 .hb:hover .layer {
   opacity: 1;
-}
-.hb:nth-child(2n) .layer {
-  right: auto;
-  left: 0;
-}
-.hb:nth-child(2n).active .layer {
-  left: 100%;
 }
 .hb.ja {
   height: 100%;
@@ -397,13 +402,6 @@ span.nohref:hover {
 .hb.mr {
   width: calc(33.3333333333% - 2.66666667rem);
   background-image: url("https://scontent-sea1-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10409288_385936911603111_5839781715589726846_n.jpg?oh=0b3ed86940b26c7ab2aa1c65cd5fe7ae&oe=56193ECF");
-}
-.hb.mr .layer {
-  right: 0;
-  left: auto !important;
-}
-.hb.mr.active .layer {
-  right: 100% !important;
 }
 
 .section.calendar .cal {
@@ -446,12 +444,70 @@ span.nohref:hover {
 .section.calendar .cal .deets h2 span {
   font-weight: normal;
 }
+.section.calendar ul.products {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.section.calendar ul.products li.product {
+  width: 33.33333333333%;
+  position: relative;
+  float: left;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.section.calendar ul.products li.product a {
+  text-decoration: none;
+}
+.section.calendar ul.products li.product img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 25.5rem;
+  margin: 0 auto;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.section.calendar ul.products li.product .overlay {
+  background-color: rgba(35, 35, 35, 0.75);
+  display: none;
+  padding: 0 0 2rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.section.calendar ul.products li.product .overlay h3 {
+  display: block;
+  text-align: center;
+  color: white;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 3rem;
+  margin: 0 auto;
+  padding: 1rem 0;
+  text-decoration: none;
+  font-style: normal;
+  -webkit-transition: top 0.25s, opacity 0.25s;
+  -moz-transition: top 0.25s, opacity 0.25s;
+  transition: top 0.25s, opacity 0.25s;
+}
+.section.calendar ul.products li.product:hover img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.section.calendar ul.products li.first {
+  clear: none;
+}
 
 .section.background {
   position: relative;
   height: 8rem;
-  background-image: url("../../images/cardsfest/tasteoflouisville.jpg");
-  background-size: cover;
+  background: transparent;
 }
 .section.background h1 {
   position: absolute;
@@ -459,9 +515,10 @@ span.nohref:hover {
   right: 0;
   left: 0;
   width: 60rem;
-  font-size: 9rem;
+  font-size: 12rem;
   font-weight: bold;
   text-align: center;
+  text-transform: uppercase;
   line-height: 0.75;
   margin: 0 auto;
   padding: 0;
