@@ -21,7 +21,7 @@ body {
 h1 {
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-weight: 700;
-  font-size: 10rem;
+  font-size: 3.5rem;
   margin-bottom: 0.4em;
 }
 
@@ -55,8 +55,8 @@ span.nohref:hover {
 }
 
 .section {
-  width: calc(100% - 8rem);
-  padding: 5rem 0;
+  width: 100%;
+  padding: 2rem 0;
   margin: 0;
   clear: both;
   background-color: white;
@@ -66,7 +66,7 @@ span.nohref:hover {
 }
 
 .container {
-  max-width: 60rem;
+  max-width: 85%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -74,7 +74,6 @@ span.nohref:hover {
 }
 .container p {
   text-align: left;
-  font-size: 1.25rem;
   font-weight: 300;
 }
 
@@ -87,8 +86,8 @@ span.nohref:hover {
   position: fixed;
   top: 0;
   right: 0;
-  height: 100%;
-  width: 8rem;
+  height: 4rem;
+  width: 100%;
   background-color: #eeeeee;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -96,29 +95,35 @@ span.nohref:hover {
   z-index: 4;
 }
 #header ul.navitems {
-  height: 20rem;
-  width: 8rem;
   position: absolute;
-  top: 0;
+  display: none;
+  top: 100%;
   right: 0;
-  bottom: 0;
-  margin: auto 0;
+  left: 0;
+  height: 16rem;
   list-style: none;
   padding: 0;
+  margin: 0;
+  background-color: #232323;
   text-align: center;
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  transition: height 0.3s;
 }
 #header ul.navitems li {
-  position: relative;
+  position: static;
   box-sizing: border-box;
   height: 4rem;
   padding: 1.5rem 0;
-  color: rgba(0, 0, 0, 0.8);
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
 #header ul.navitems li span {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -130,23 +135,25 @@ span.nohref:hover {
   color: white;
   background-color: #232323;
 }
-#header .logo {
+#header img {
+  display: none;
+}
+#header img.reallogo {
   display: block;
   position: absolute;
-  right: 0;
-  bottom: 2rem;
-  left: 0;
-  width: 50%;
-  margin: 0 auto;
-  z-index: 1;
+  top: 0;
+  left: 1rem;
+  bottom: 0;
+  height: 2rem;
+  margin: auto 0;
 }
 #header .lines-button {
   display: inline-block;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   height: 4rem;
-  width: 8rem;
+  width: 4rem;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -191,6 +198,9 @@ span.nohref:hover {
 #header .lines-button.x.close .lines:after {
   transform: rotate3d(0, 0, 1, -45deg);
 }
+#header .lines-button.x.close ~ ul.navitems {
+  display: block;
+}
 #header .lines-button .lines {
   display: inline-block;
   width: 1.25rem;
@@ -226,24 +236,14 @@ span.nohref:hover {
   top: -0.25rem;
 }
 
-#body {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 8rem);
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
 .section.intro {
+  background: url("../../images/videos/1200-Gonzofest.png") no-repeat;
+  background-size: cover;
   position: relative;
-  background-color: transparent;
   color: white;
 }
 .section.intro video#bgvid {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -256,41 +256,22 @@ span.nohref:hover {
   background-size: cover;
 }
 .section.intro h1 {
-  font-size: 15rem;
+  font-size: 5rem;
   margin: 2rem 0 0;
   text-align: left;
 }
 .section.intro span.mission {
   display: block;
   margin: 0 auto 2rem;
-  font-size: 2rem;
   text-align: left;
 }
 .section.intro img.logo {
-  display: block;
-  position: absolute;
-  top: 2rem;
-  left: 10%;
-  height: 2rem;
-}
-
-.lefthb .layer, .hb.ja .layer, .hb.ls .layer, .hb.se .layer {
-  left: 0;
-}
-.lefthb.active .layer, .active.hb.ja .layer, .active.hb.ls .layer, .active.hb.se .layer {
-  left: 100%;
-}
-
-.righthb .layer, .hb.cm .layer, .hb.fse .layer, .hb.bq .layer, .hb.mr .layer {
-  right: 0;
-}
-.righthb.active .layer, .active.hb.cm .layer, .active.hb.fse .layer, .active.hb.bq .layer, .active.hb.mr .layer {
-  right: 100%;
+  display: none;
 }
 
 .hb {
   position: relative;
-  width: calc(50% - 4rem);
+  width: 100%;
   height: 75%;
   float: left;
   background-size: auto 125%;
@@ -307,6 +288,7 @@ span.nohref:hover {
   top: 0;
   bottom: 0;
   width: 100%;
+  padding-bottom: 1rem;
   background-color: rgba(252, 136, 0, 0.6);
   color: white;
   overflow-y: scroll;
@@ -349,7 +331,7 @@ span.nohref:hover {
   text-align: center;
 }
 .hb h1 {
-  font-size: 8rem;
+  font-size: 3.5rem;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -357,7 +339,6 @@ span.nohref:hover {
   z-index: 3;
 }
 .hb.active .layer {
-  background-color: #fc8800;
   opacity: 1;
 }
 .hb.active .layer .strike {
@@ -388,11 +369,9 @@ span.nohref:hover {
   background-image: url("https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/11731633_407131619492850_1451372770986639897_o.jpg");
 }
 .hb.se {
-  width: calc(33.3333333333% - 2.66666667rem);
   background-image: url("https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/11026102_855614741177948_7234933820865938263_o.jpg");
 }
 .hb.bq {
-  width: calc(33.3333333333% - 2.66666667rem);
   background-image: url("https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/1899910_862962700390205_7867859187065792344_n.jpg?oh=c0892dc3ab387da64ff3629372e2fd6e&oe=562894AA");
   background-size: auto 150%;
 }
@@ -400,7 +379,6 @@ span.nohref:hover {
   background-size: auto 175%;
 }
 .hb.mr {
-  width: calc(33.3333333333% - 2.66666667rem);
   background-image: url("https://scontent-sea1-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10409288_385936911603111_5839781715589726846_n.jpg?oh=0b3ed86940b26c7ab2aa1c65cd5fe7ae&oe=56193ECF");
 }
 
@@ -506,7 +484,7 @@ span.nohref:hover {
 
 .section.background {
   position: relative;
-  height: 8rem;
+  height: 2rem;
   background: transparent;
 }
 .section.background h1 {
@@ -514,8 +492,8 @@ span.nohref:hover {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 60rem;
-  font-size: 12rem;
+  width: 85%;
+  font-size: 5rem;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
@@ -524,10 +502,22 @@ span.nohref:hover {
   padding: 0;
   color: white;
 }
+.section.background#artists {
+  background: url("https://farm9.staticflickr.com/8683/16693392126_8390c6574f_b.jpg") no-repeat left center;
+  background-size: 100% auto;
+}
+.section.background#calendar {
+  background: url("https://farm9.staticflickr.com/8146/7234311140_c5a3aedf15_k.jpg") no-repeat left center;
+  background-size: 100% auto;
+}
+.section.background#sponsors {
+  background: url("../../images/cardsfest/tasteoflouisville.jpg") no-repeat left center;
+  background-size: 100% auto;
+}
 
 .section.food img {
   display: inline-block;
-  width: 20%;
+  width: 45%;
   margin: 1rem 2.5%;
 }
 
@@ -579,4 +569,125 @@ span.nohref:hover {
   background-color: white;
   color: black;
   text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 10rem;
+  }
+
+  .section {
+    width: calc(100% - 8rem);
+    padding: 5rem 0;
+  }
+
+  .container {
+    max-width: 60rem;
+  }
+  .container p {
+    font-size: 1.25rem;
+  }
+
+  #header {
+    height: 100%;
+    width: 8rem;
+  }
+  #header ul.navitems {
+    display: block;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    width: 8rem;
+    margin: auto 0;
+    background-color: transparent;
+  }
+  #header ul.navitems li {
+    position: relative;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  #header ul.navitems li span {
+    display: inline;
+  }
+  #header img {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+  #header img.logo {
+    bottom: 2rem;
+    width: 50%;
+  }
+  #header img.reg {
+    top: 2rem;
+    width: 80%;
+  }
+  #header img.reallogo {
+    display: none;
+  }
+  #header .lines-button {
+    display: none;
+  }
+
+  .section.intro {
+    background: transparent;
+  }
+  .section.intro video#bgvid {
+    display: block;
+  }
+  .section.intro h1 {
+    font-size: 15rem;
+  }
+  .section.intro span.mission {
+    font-size: 2rem;
+  }
+  .section.intro img.logo {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 10%;
+    height: 2rem;
+  }
+
+  .hb {
+    width: calc(50% - 4rem);
+  }
+  .hb h1 {
+    font-size: 8rem;
+  }
+  .hb.active .layer {
+    background-color: #fc8800;
+  }
+  .hb.ja .layer, .hb.ls .layer, .hb.se .layer {
+    left: 0;
+  }
+  .hb.ja.active .layer, .hb.ls.active .layer, .hb.se.active .layer {
+    left: 100%;
+  }
+  .hb.cm .layer, .hb.fse .layer, .hb.bq .layer, .hb.mr .layer {
+    right: 0;
+  }
+  .hb.cm.active .layer, .hb.fse.active .layer, .hb.bq.active .layer, .hb.mr.active .layer {
+    right: 100%;
+  }
+  .hb.se, .hb.bq, .hb.mr {
+    width: calc(33.3333333333% - 2.66666667rem);
+  }
+
+  .section.background {
+    height: 8rem;
+  }
+  .section.background h1 {
+    font-size: 12rem;
+    width: 60rem;
+  }
+  .section.background#artists, .section.background#calendar, .section.background#sponsors {
+    background: none;
+  }
+
+  .section.food {
+    width: 20%;
+  }
 }

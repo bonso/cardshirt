@@ -38,7 +38,7 @@ body {
 h1 {
     font-family: $header-font;
 	font-weight: 700;
-	font-size: 10rem;
+	font-size: 3.5rem;
     margin-bottom: 0.4em;
 }
 
@@ -72,8 +72,8 @@ span.nohref:hover {
 }
 
 .section {
-    width: calc(100% - 8rem);
-	padding: 5rem 0;
+    width: 100%;
+	padding: 2rem 0;
 	margin: 0;
 	clear: both;
     background-color: white;
@@ -83,14 +83,13 @@ span.nohref:hover {
 }
 
 .container {
-	max-width: 60rem;
+	max-width: 85%;
 	margin: 0 auto;
 	padding: 0;
 	text-align: center;
 	overflow: hidden;
 	p {
 		text-align: left;
-        font-size: 1.25rem;
 		font-weight: 300;
 	}
 }
@@ -117,8 +116,8 @@ $transition: .3s;
     position: fixed;
     top: 0;
 	right: 0;
-    height: 100%;
-    width: 8rem;
+    height: 4rem;
+    width: 100%;
 	background-color: $gray;
     @include transition(all $transition);
     z-index: 4;
@@ -127,24 +126,27 @@ $transition: .3s;
 //        overflow: visible;
 //    }
     ul.navitems {
-        height: 20rem;
-        width: 8rem;
         position: absolute;
-        top: 0; right: 0; bottom: 0;
-        margin: auto 0;
+        display: none;
+        top: 100%; right: 0; left: 0;
+        height: 16rem;
         list-style: none;
         padding: 0;
+        margin: 0;
+        background-color: $black;
         text-align: center;
-//        color: white;
+        @include transition(height $transition);
         li {
-            position: relative;
+            position: static;
             box-sizing: border-box;
             height: 4rem;
             padding: 1.5rem 0;
-            color: rgba(black, 0.8);
+            margin: 0 auto;
+            color: rgba(white, 0.8);
             cursor: pointer;
             @include transition(all $transition);
             span {
+                display: none;
                 position: absolute;
                 bottom: 0; left: 0;
                 height: 0.125rem;
@@ -157,20 +159,22 @@ $transition: .3s;
             }
         }
     }
-    .logo {
-    	display: block;
-        position: absolute;
-        right: 0; bottom: 2rem; left: 0;
-    	width: 50%;
-        margin: 0 auto;
-        z-index: 1;
+    img {
+        display: none;
+        &.reallogo {
+            display: block;
+            position: absolute;
+            top: 0; left: 1rem; bottom: 0;
+            height: 2rem;
+            margin: auto 0;
+        }
     }
     .lines-button {
         display: inline-block;
         position: absolute;
-        top: 0; left: 0;
+        top: 0; right: 0;
         height: 4rem;
-        width: 8rem;
+        width: 4rem;
         @include transition(all $transition);
         cursor: pointer;
         user-select: none;
@@ -208,6 +212,9 @@ $transition: .3s;
                     transform: rotate3d(0,0,1,-45deg); 
                 }
             }
+            & ~ ul.navitems {
+                display: block;
+            }
         }
         .lines {
             //create middle line
@@ -229,27 +236,13 @@ $transition: .3s;
     }
 }
 
-#body {
-    position: absolute;
-    top: 0; left: 0;
-    width: calc(100% - 8rem);
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-
 .section.intro {
-//    background-image: url('https://farm9.staticflickr.com/8634/16719027815_54ce4b769c_o.jpg');
-//    background-size: 100% 100%;
-//    box-sizing: border-box;
-//    height: 100%;
-//    width: 100%;
+    background: url('../../images/videos/1200-Gonzofest.png') no-repeat;
+    background-size: cover;
     position: relative;
-    background-color: transparent;
     color: white;
     video#bgvid {
+        display: none;
         position: absolute;
         top: 0; left: 0;
         min-width: 100%;
@@ -261,7 +254,7 @@ $transition: .3s;
         background-size: cover;
     }
     h1 {
-        font-size: 15rem;
+        font-size: 5rem;
         margin: 2rem 0 0;
         text-align: left;
 //        color: $yellow;
@@ -269,15 +262,11 @@ $transition: .3s;
     span.mission {
         display: block;
         margin: 0 auto 2rem;
-        font-size: 2rem;
         text-align: left;
 //        color: $yellow;
     }
     img.logo {
-        display: block;
-        position: absolute;
-        top: 2rem; left: 10%;
-    	height: 2rem;
+        display: none;
     }
 }
 
@@ -286,30 +275,9 @@ $transition: .3s;
 //    color: white;
 //}
 
-.lefthb {
-    .layer {
-        left: 0;
-    }
-    &.active {
-        .layer {
-            left: 100%;
-        }
-    }
-}
-.righthb {
-    .layer {
-        right: 0;
-    }
-    &.active {
-        .layer {
-            right: 100%;
-        }
-    }
-}
-
 .hb { // used to stand for herringbone :(
 	position: relative;
-    width: calc(50% - 4rem);
+    width: 100%;
     height: 75%;
     float: left;
     background-size: auto 125%;
@@ -322,6 +290,7 @@ $transition: .3s;
         position: absolute;
         top: 0; bottom: 0;
         width: 100%;
+        padding-bottom: 1rem;
         background-color: rgba($orange, 0.6);
         color: white;
         overflow-y: scroll;
@@ -362,14 +331,13 @@ $transition: .3s;
         }
     }
     h1 {
-        font-size: 8rem;
+        font-size: 3.5rem;
         text-align: center;
         margin-bottom: 2rem;
     }
     &.active {
         z-index: 3;
         .layer {
-            background-color: $orange;
             opacity: 1;
             .strike {
                 display: none;
@@ -386,12 +354,6 @@ $transition: .3s;
             opacity: 1;
         }
     }
-    &.ja, &.ls, &.se {
-        @extend .lefthb;
-    }
-    &.cm, &.fse, &.bq, &.mr {
-        @extend .righthb;
-    }
     &.ja {
         height: 100%;
         background-image: url('https://farm9.staticflickr.com/8639/16717808201_84cc2decd5_o.jpg');
@@ -407,11 +369,9 @@ $transition: .3s;
         background-image: url('https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/11731633_407131619492850_1451372770986639897_o.jpg');
     }
     &.se {
-        width: calc(33.3333333333% - 2.66666667rem);
         background-image: url('https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/11026102_855614741177948_7234933820865938263_o.jpg');
     }
     &.bq {
-        width: calc(33.3333333333% - 2.66666667rem);
         background-image: url('https://scontent-iad3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/1899910_862962700390205_7867859187065792344_n.jpg?oh=c0892dc3ab387da64ff3629372e2fd6e&oe=562894AA');
         background-size: auto 150%;
         &:hover {
@@ -419,7 +379,6 @@ $transition: .3s;
         }
     }
     &.mr {
-        width: calc(33.3333333333% - 2.66666667rem);
         background-image: url('https://scontent-sea1-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10409288_385936911603111_5839781715589726846_n.jpg?oh=0b3ed86940b26c7ab2aa1c65cd5fe7ae&oe=56193ECF');
     }
 }
@@ -530,15 +489,13 @@ $transition: .3s;
 
 .section.background {
     position: relative;
-    height: 8rem;
-//    background-image: url('../../images/cardsfest/tasteoflouisville.jpg');
-//    background-size: cover;
+    height: 2rem;
     background: transparent;
     h1 {
         position: absolute;
         bottom: 0; right: 0; left: 0;
-        width: 60rem;
-        font-size: 12rem;
+        width: 85%;
+        font-size: 5rem;
         font-weight: bold;
         text-align: center;
         text-transform: uppercase;
@@ -547,12 +504,24 @@ $transition: .3s;
         padding: 0;
         color: white;
     }
+    &#artists {
+        background: url('https://farm9.staticflickr.com/8683/16693392126_8390c6574f_b.jpg') no-repeat left center;
+        background-size: 100% auto;
+    }
+    &#calendar {
+        background: url('https://farm9.staticflickr.com/8146/7234311140_c5a3aedf15_k.jpg') no-repeat left center;
+        background-size: 100% auto;
+    }
+    &#sponsors {
+        background: url('../../images/cardsfest/tasteoflouisville.jpg') no-repeat left center;
+        background-size: 100% auto;
+    }
 }
 
 .section.food {
     img {
         display: inline-block;
-        width: 20%;
+        width: 45%;
         margin: 1rem 2.5%;
     }
 }
@@ -603,4 +572,143 @@ $transition: .3s;
 	background-color: white;
     color: black;
 	text-decoration: none;
+}
+
+@media only screen and (min-width: 481px) {
+    
+}
+
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 10rem;
+    }
+    
+    .section {
+        width: calc(100% - 8rem);
+        padding: 5rem 0;
+    }
+    
+    .container {
+        max-width: 60rem;
+        p {
+            font-size: 1.25rem;
+        }
+    }
+    
+    #header {
+        height: 100%;
+        width: 8rem;
+        ul.navitems {
+            display: block;
+            top: 0; right: auto; bottom: 0;
+            width: 8rem;
+            margin: auto 0;
+            background-color: transparent;
+            li {
+                position: relative;
+                margin: 0;
+                color: rgba(black, 0.8);
+                span {
+                    display: inline;
+                }
+            }
+        }
+        img {
+            display: block;
+            position: absolute;
+            right: 0; left: 0;
+            margin: 0 auto;
+            &.logo {
+            	bottom: 2rem;
+            	width: 50%;
+            }
+            &.reg {
+                top: 2rem;
+                width: 80%;
+            }
+            &.reallogo {
+                display: none;
+            }
+        }
+        .lines-button {
+            display: none;
+        }
+    }
+    
+    .section.intro {
+        background: transparent;
+        video#bgvid {
+            display: block;
+        }
+        h1 {
+            font-size: 15rem;
+        }
+        span.mission {
+            font-size: 2rem;
+        }
+        img.logo {
+            display: block;
+            position: absolute;
+            top: 2rem; left: 10%;
+        	height: 2rem;
+        }
+    }
+    
+    .hb {
+        width: calc(50% - 4rem);
+        h1 {
+            font-size: 8rem;
+        }
+        &.active {
+            .layer {
+                background-color: $orange;
+            }
+        }
+        &.ja, &.ls, &.se {
+            .layer {
+                left: 0;
+            }
+            &.active {
+                .layer {
+                    left: 100%;
+                }
+            }
+        }
+        &.cm, &.fse, &.bq, &.mr {
+            .layer {
+                right: 0;
+            }
+            &.active {
+                .layer {
+                    right: 100%;
+                }
+            }
+        }
+        &.se, &.bq, &.mr {
+            width: calc(33.3333333333% - 2.66666667rem);
+        }
+    }
+    
+    .section.background {
+        height: 8rem;
+        h1 {
+            font-size: 12rem;
+            width: 60rem;
+        }
+        &#artists, &#calendar, &#sponsors {
+            background: none;
+        }
+    }
+    
+    .section.food {
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 1030px) {
+    
+}
+
+@media only screen and (min-width: 1240px) {
+    
 }
